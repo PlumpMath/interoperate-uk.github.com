@@ -2,5 +2,5 @@
 rake generate
 rake deploy
 git add .
-git commit -m 'Changed some stuff'
+git commit -m 'updated'
 git push origin source
