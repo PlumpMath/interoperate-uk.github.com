@@ -7,7 +7,9 @@ categories:
 - Blogging
 - Ruby
 ---
-So, here I am at the start of 2012 with a bit of time on my hands being 'between contracts' so I thought I'd spend a bit of time updating my own website.  Having messed around a little bit I came to the conclusion that all I really need is a blog site for me to record anything that I find remotely interesting and worth sharing.  Key requirements were:
+So, here I am at the start of 2012 with a bit of time on my hands being 'between contracts' so I thought I'd spend a bit of time updating my own website.  Having messed around a little bit I came to the conclusion that all I really need is a blog site for me to record anything that I find remotely interesting and worth sharing.
+
+Key requirements:
 
 - Written in Ruby
 - Quick to update
