@@ -41,4 +41,4 @@ git commit -m 'updated'
 git push origin source
 ```
 
-A big thanks to Brandon Mathis for writing [Octopress](http://octopress.org).  It's a beautifully clean piece of code and exactly what I was looking for.  Blogging has never been so simple.
+A big thanks to [Brandon Mathis](http://brandonmathis.com/) for writing [Octopress](http://octopress.org).  It's a beautifully clean piece of code and exactly what I was looking for.  Blogging has never been so simple.
