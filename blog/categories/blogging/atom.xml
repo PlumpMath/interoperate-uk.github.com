@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blogging | Interoperate]]></title>
   <link href="http://jonwade.github.com/blog/categories/blogging/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
-  <updated>2012-01-15T21:34:59+00:00</updated>
+  <updated>2012-01-15T21:36:28+00:00</updated>
   <id>http://jonwade.github.com/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -37,11 +37,11 @@ Pages are just as simple <code>rake new_page["about"]</code>.</p>
 
 <p>Once you have edited the posts using <a href="http://github.github.com/github-flavored-markdown/">Markdown</a> syntax, they are uploaded to Github pages using the following shell script:</p>
 
-<p>``` bash</p>
+<p>``` bash deploy.sh</p>
 
 <h1>!/bin/bash</h1>
 
-<h1>This will deploy the site to your git 'master' branch</h1>
+<h1>This will generate the static files and deploy them to your Github pages 'master' branch</h1>
 
 <p>rake generate
 rake deploy</p>
