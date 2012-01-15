@@ -4,7 +4,7 @@
   <title><![CDATA[Interoperate]]></title>
   <link href="http://jonwade.github.com/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
-  <updated>2012-01-15T23:06:04+00:00</updated>
+  <updated>2012-01-15T23:11:42+00:00</updated>
   <id>http://jonwade.github.com/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -37,8 +37,9 @@
 <blockquote><p>Octopress is a blogging framework for hackers. You should be comfortable running shell commands and familiar with the basics of Git. If that sounds daunting, Octopress probably isn’t for you.</p><footer><strong>Brandon Mathis</strong> <cite><a href='http://octopress.org/docs/setup/'>octopress.org/docs/setup/&hellip;</a></cite></footer></blockquote>
 
 
-<p>Posts are create using a simple rake task <code>rake new_post["My New Interesting Post"]</code>.
-Pages are just as simple <code>rake new_page["about"]</code>.</p>
+<p>Posts are create using a simple rake task <code>rake new_post["My New Interesting Post"]</code>.</p>
+
+<p>Pages are just as simple <code>rake new_page["about"]</code>.</p>
 
 <p>Once you have edited the posts using <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> syntax, they are uploaded to Github pages using the following commands which I just wrapped up in a shell script:</p>
 
