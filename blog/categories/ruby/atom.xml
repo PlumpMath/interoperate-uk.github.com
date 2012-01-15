@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Interoperate]]></title>
   <link href="http://jonwade.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
-  <updated>2012-01-15T21:27:12+00:00</updated>
+  <updated>2012-01-15T21:34:59+00:00</updated>
   <id>http://jonwade.github.com/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -32,9 +32,26 @@
 <p>I generally have an aversion to Content Management Systems and didn't want anything too heavy.  I much prefer editing raw text files and don't like WYSIWYG editors.  After some pondering, I ended up at the excellent <a href="https://www.ruby-toolbox.com/">Ruby Toolbox</a> website which led me to <a href="http://octopress.org">Octopress</a> and so far I haven't been disappointed.  I took the decision to deploy it (for free) at Github Pages and so far the experience has been entirely pleasurable.  <a href="http://octopress.org">Octopress</a> is based on the <a href="https://github.com/mojombo/jekyll">Jekyll</a> static site generator that is used by Github pages.  I can't believe that I was actually considering writing my own blog engine as a mountable Rails 3.1 engine.  I was up and running within 30 minutes and most of that time was spent deciding which fonts and colour scheme to use.  Updating the website is as simple as committing to Git so if you're comfortable with that then you will find it a walk in the park.  As the author acknowledges:
 <blockquote><p>Octopress is a blogging framework for hackers. You should be comfortable running shell commands and familiar with the basics of Git. If that sounds daunting, Octopress probably isn’t for you.</p><footer><strong>Brandon Mathis</strong> <cite><a href='http://octopress.org/docs/setup/'>octopress.org/docs/setup/&hellip;</a></cite></footer></blockquote></p>
 
-<p>Posts are create using a simple rake task <code>rake new_post["My New Interesting Post"]</code>
-Pages are just as simple <code>rake new_page["about"]</code>
-Posts are edited using <a href="http://github.github.com/github-flavored-markdown/">GitHub Flavoured Markdown</a> syntax.  On top of this, there are several <a href="http://octopress.org/docs/plugins/">plugins</a> to enhance the whole publishing experience.</p>
+<p>Posts are create using a simple rake task <code>rake new_post["My New Interesting Post"]</code>.
+Pages are just as simple <code>rake new_page["about"]</code>.</p>
+
+<p>Once you have edited the posts using <a href="http://github.github.com/github-flavored-markdown/">Markdown</a> syntax, they are uploaded to Github pages using the following shell script:</p>
+
+<p>``` bash</p>
+
+<h1>!/bin/bash</h1>
+
+<h1>This will deploy the site to your git 'master' branch</h1>
+
+<p>rake generate
+rake deploy</p>
+
+<h1>This will deploy the source code to git 'source' branch</h1>
+
+<p>git add .
+git commit -m 'updated'
+git push origin source
+```</p>
 
 <p>A big thanks to Brandon Mathis for writing <a href="http://octopress.org">Octopress</a>.  It's a beautifully clean piece of code and exactly what I was looking for.  Blogging has never been so simple.</p>
 ]]></content>

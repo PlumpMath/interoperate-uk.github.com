@@ -113,9 +113,29 @@
 <blockquote><p>Octopress is a blogging framework for hackers. You should be comfortable running shell commands and familiar with the basics of Git. If that sounds daunting, Octopress probably isn’t for you.</p><footer><strong>Brandon Mathis</strong> <cite><a href='http://octopress.org/docs/setup/'>octopress.org/docs/setup/&hellip;</a></cite></footer></blockquote>
 
 
-<p>Posts are create using a simple rake task <code>rake new_post["My New Interesting Post"]</code>
-Pages are just as simple <code>rake new_page["about"]</code>
-Posts are edited using <a href="http://github.github.com/github-flavored-markdown/">GitHub Flavoured Markdown</a> syntax.  On top of this, there are several <a href="http://octopress.org/docs/plugins/">plugins</a> to enhance the whole publishing experience.</p>
+<p>Posts are create using a simple rake task <code>rake new_post["My New Interesting Post"]</code>.
+Pages are just as simple <code>rake new_page["about"]</code>.</p>
+
+<p>Once you have edited the posts using <a href="http://github.github.com/github-flavored-markdown/">Markdown</a> syntax, they are uploaded to Github pages using the following shell script:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
+</span><span class='line'><span class="c"># This will deploy the site to your git &#39;master&#39; branch</span>
+</span><span class='line'>rake generate
+</span><span class='line'>rake deploy
+</span><span class='line'><span class="c"># This will deploy the source code to git &#39;source&#39; branch</span>
+</span><span class='line'>git add .
+</span><span class='line'>git commit -m <span class="s1">&#39;updated&#39;</span>
+</span><span class='line'>git push origin <span class="nb">source</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>A big thanks to Brandon Mathis for writing <a href="http://octopress.org">Octopress</a>.  It&#8217;s a beautifully clean piece of code and exactly what I was looking for.  Blogging has never been so simple.</p>
 </div>
