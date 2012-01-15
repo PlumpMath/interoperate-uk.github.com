@@ -94,7 +94,7 @@
   </header>
 
 
-<div class="entry-content"><p>So, here I am at the start of 2012 with a bit of time on my hands being &#8216;between contracts&#8217; so I thought I&#8217;d spend a bit of time updating my own website.  Having messed around a little bit I came to the conclusion that all I really need is a blog site for me to record anything that I find remotely interesting and worth sharing.  So, with that in mind, I set about finding a solution for a blogging engine.  My key requirements were:</p>
+<div class="entry-content"><p>So, here I am at the start of 2012 with a bit of time on my hands being &#8216;between contracts&#8217; so I thought I&#8217;d spend a bit of time updating my own website.  After a little thought, I came to the conclusion that all I really need is a blog site for me to record anything that I find remotely interesting and worth sharing.  So, with that in mind, I set about finding a solution for a blogging engine.  My key requirements were:</p>
 
 <ul>
 <li>Written in Ruby</li>
@@ -105,18 +105,16 @@
 </ul>
 
 
-<p>I generally have an aversion to Content Management Systems and didn&#8217;t want anything too heavy.  I much prefer editing raw text files and don&#8217;t like WYSIWYG editors.  After some pondering, I ended up at the excellent <a href="https://www.ruby-toolbox.com/">Ruby Toolbox</a> website which led me to <a href="http://octopress.org">Octopress</a> and so far I haven&#8217;t been disappointed.  I took the decision to deploy it (for free) at GitHub Pages and so far the experience has been entirely pleasurable.  I can&#8217;t believe that I was actually considering writing my own blog engine as a mountable Rails 3.1 engine.  I was up and running within 30 minutes and most of that time was spent deciding which fonts and colour scheme to use.  Updating the website is as simple as committing to Git so if you&#8217;re comfortable with that then you will find it a walk in the park.  As the author acknowledges:</p>
+<p>I generally have an aversion to Content Management Systems and didn&#8217;t want anything too heavy.  I much prefer editing raw text files and don&#8217;t like WYSIWYG editors.  After some pondering, I ended up at the excellent <a href="https://www.ruby-toolbox.com/">Ruby Toolbox</a> website which led me to <a href="http://octopress.org">Octopress</a> and so far I haven&#8217;t been disappointed.  I took the decision to deploy it (for free) at Github Pages and so far the experience has been entirely pleasurable.  <a href="http://octopress.org">Octopress</a> is based on the <a href="https://github.com/mojombo/jekyll">Jekyll</a> static site generator that is used by Github pages.  I can&#8217;t believe that I was actually considering writing my own blog engine as a mountable Rails 3.1 engine.  I was up and running within 30 minutes and most of that time was spent deciding which fonts and colour scheme to use.  Updating the website is as simple as committing to Git so if you&#8217;re comfortable with that then you will find it a walk in the park.  As the author acknowledges:</p>
 
 <blockquote><p>Octopress is a blogging framework for hackers. You should be comfortable running shell commands and familiar with the basics of Git. If that sounds daunting, Octopress probably isn’t for you.</p><footer><strong>Brandon Mathis</strong> <cite><a href='http://octopress.org/docs/setup/'>octopress.org/docs/setup/&hellip;</a></cite></footer></blockquote>
 
 
-<p>Posts are create using a simple rake task <code>rake new_post["My New Interesting Post"]</code></p>
+<p>Posts are create using a simple rake task <code>rake new_post["My New Interesting Post"]</code>
+Pages are just as simple <code>rake new_page["about"]</code>
+Posts are edited using <a href="http://github.github.com/github-flavored-markdown/">GitHub Flavoured Markdown</a> syntax.  On top of this, there are several <a href="http://octopress.org/docs/plugins/">plugins</a> to enhance the whole publishing experience.</p>
 
-<p>Pages are just as simple <code>rake new_page["about"]</code></p>
-
-<p>Posts are edited using <a href="http://github.github.com/github-flavored-markdown/">GitHub Flavoured Markdown</a> syntax.  On top of this, there are several <a href="http://octopress.org/docs/plugins/">plugins</a> to augment the whole publishing experience.</p>
-
-<p>Big thanks to Brandon Mathis for writing <a href="http://octopress.org">Octopress</a>.  It&#8217;s a beautifully clean piece of code and exactly what I was looking for.  Blogging has never been so simple.</p>
+<p>A big thanks to Brandon Mathis for writing <a href="http://octopress.org">Octopress</a>.  It&#8217;s a beautifully clean piece of code and exactly what I was looking for.  Blogging has never been so simple.</p>
 </div>
 
 
@@ -144,7 +142,7 @@
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/blogging/'>Blogging</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+    <a class='category' href='/blog/categories/blogging/'>Blogging</a>, <a class='category' href='/blog/categories/jekyll/'>Jekyll</a>, <a class='category' href='/blog/categories/markdown/'>Markdown</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
   
 </span>
 
