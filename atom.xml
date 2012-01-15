@@ -4,7 +4,7 @@
   <title><![CDATA[Interoperate]]></title>
   <link href="http://jonwade.github.com/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
-  <updated>2012-01-15T21:11:14+00:00</updated>
+  <updated>2012-01-15T21:20:30+00:00</updated>
   <id>http://jonwade.github.com/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -18,9 +18,7 @@
     <link href="http://jonwade.github.com/blog/2012/01/15/which-ruby-blog-engine/"/>
     <updated>2012-01-15T20:23:00+00:00</updated>
     <id>http://jonwade.github.com/blog/2012/01/15/which-ruby-blog-engine</id>
-    <content type="html"><![CDATA[<p>So, here I am at the start of 2012 with a bit of time on my hands being &#8216;between contracts&#8217; so I thought I&#8217;d spend a bit of time updating my own website.  Having messed around a little bit I came to the conclusion that all I really need is a blog site for me to record anything that I find remotely interesting and worth sharing.</p>
-
-<p>Key requirements:</p>
+    <content type="html"><![CDATA[<p>So, here I am at the start of 2012 with a bit of time on my hands being &#8216;between contracts&#8217; so I thought I&#8217;d spend a bit of time updating my own website.  Having messed around a little bit I came to the conclusion that all I really need is a blog site for me to record anything that I find remotely interesting and worth sharing.  So, with that in mind, I set about finding a solution for a blogging engine.  My key requirements were:</p>
 
 <ul>
 <li>Written in Ruby</li>
@@ -35,6 +33,12 @@
 
 <blockquote><p>Octopress is a blogging framework for hackers. You should be comfortable running shell commands and familiar with the basics of Git. If that sounds daunting, Octopress probably isn’t for you.</p><footer><strong>Brandon Mathis</strong> <cite><a href='http://octopress.org/docs/setup/'>octopress.org/docs/setup/&hellip;</a></cite></footer></blockquote>
 
+
+<p>Posts are create using a simple rake task <code>rake new_post["My New Interesting Post"]</code></p>
+
+<p>Pages are just as simple <code>rake new_page["about"]</code></p>
+
+<p>Posts are edited using <a href="http://github.github.com/github-flavored-markdown/">GitHub Flavoured Markdown</a> syntax.  On top of this, there are several <a href="http://octopress.org/docs/plugins/">plugins</a> to augment the whole publishing experience.</p>
 
 <p>Big thanks to Brandon Mathis for writing <a href="http://octopress.org">Octopress</a>.  It&#8217;s a beautifully clean piece of code and exactly what I was looking for.  Blogging has never been so simple.</p>
 ]]></content>
