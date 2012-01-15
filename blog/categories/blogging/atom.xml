@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blogging | Interoperate]]></title>
   <link href="http://jonwade.github.com/blog/categories/blogging/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
-  <updated>2012-01-15T21:06:57+00:00</updated>
+  <updated>2012-01-15T21:09:53+00:00</updated>
   <id>http://jonwade.github.com/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -20,14 +20,12 @@
     <id>http://jonwade.github.com/blog/2012/01/15/which-ruby-blog-engine</id>
     <content type="html"><![CDATA[<p>So, here I am at the start of 2012 with a bit of time on my hands being 'between contracts' so I thought I'd spend a bit of time updating my own website.  Having messed around a little bit I came to the conclusion that all I really need is a blog site for me to record anything that I find remotely interesting and worth sharing.  Key requirements were:</p>
 
-<ol>
-<li>Written in Ruby</li>
-<li>Quick to update</li>
-<li>Lightweight</li>
-<li>Easy to deploy</li>
-<li>Code highlighting support</li>
-</ol>
-
+<pre><code>1. Written in Ruby
+1. Quick to update
+1. Lightweight
+1. Easy to deploy
+1. Code highlighting support
+</code></pre>
 
 <p>I generally have an aversion to Content Management Systems and didn't want anything too heavy.  I much prefer editing raw text files and don't like WYSIWYG editors.  After some pondering, I ended up at the excellent <a href="https://www.ruby-toolbox.com/">Ruby Toolbox</a> website which led me to <a href="http://octopress.org">Octopress</a> and so far I haven't been disappointed.  I took the decision to deploy it (for free) at GitHub Pages and so far the experience has been entirely pleasurable.  I can't believe that I was actually considering writing my own blog engine as a mountable Rails 3.1 engine.  I was up and running within 30 minutes and most of that time was spent deciding which fonts and colour scheme to use.  Updating the website is as simple as committing to Git so if you're comfortable with that then you will find it a walk in the park.  As the author acknowledges:
 <blockquote><p>Octopress is a blogging framework for hackers. You should be comfortable running shell commands and familiar with the basics of Git. If that sounds daunting, Octopress probably isn’t for you.</p><footer><strong>Brandon Mathis</strong> <cite><a href='http://octopress.org/docs/setup/'>octopress.org/docs/setup/&hellip;</a></cite></footer></blockquote></p>
