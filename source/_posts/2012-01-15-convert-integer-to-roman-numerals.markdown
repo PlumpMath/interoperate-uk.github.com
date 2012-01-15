@@ -6,7 +6,7 @@ comments: true
 categories:
 - Ruby
 ---
-This is just a test.
+Just gone live with this blog and I must say that I'm pretty impressed with [Octopress](http://octopress.org/).  Thought I'd check out the code highlighting with a simple Ruby function.
 
 ``` ruby Convert to Roman Numerals
 def to_roman year
