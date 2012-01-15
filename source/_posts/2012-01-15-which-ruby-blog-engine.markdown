@@ -28,9 +28,9 @@ Pages are just as simple `rake new_page["about"]`.
 
 Once you have edited the posts using [Markdown](http://github.github.com/github-flavored-markdown/) syntax, they are uploaded to Github pages using the following shell script:
 
-``` bash
+``` bash deploy.sh
 #!/bin/bash
-# This will deploy the site to your git 'master' branch
+# This will generate the static files and deploy them to your Github pages 'master' branch
 rake generate
 rake deploy
 # This will deploy the source code to git 'source' branch
