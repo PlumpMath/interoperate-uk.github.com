@@ -4,7 +4,7 @@
   <title><![CDATA[Interoperate]]></title>
   <link href="http://jonwade.github.com/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
-  <updated>2012-01-15T23:11:42+00:00</updated>
+  <updated>2012-01-15T23:31:01+00:00</updated>
   <id>http://jonwade.github.com/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -71,7 +71,7 @@
     <link href="http://jonwade.github.com/blog/2012/01/15/ruby-roman-numeral-method/"/>
     <updated>2012-01-15T18:48:00+00:00</updated>
     <id>http://jonwade.github.com/blog/2012/01/15/ruby-roman-numeral-method</id>
-    <content type="html"><![CDATA[<p>Just gone live with this blog and I must say that I&#8217;m pretty impressed with <a href="http://octopress.org/">Octopress</a>.  It only took me a few minutes to get it setup and hosted on <a href="http://www.github.com/">GitHub</a> thanks to the excellent documentation.  For my first post I thought I&#8217;d check out the code highlighting with a simple Ruby function.</p>
+    <content type="html"><![CDATA[<p>Just gone live with this blog and I must say that I&#8217;m pretty impressed with <a href="http://octopress.org/">Octopress</a>.  It only took me a few minutes to get it setup and hosted on <a href="http://www.github.com/">GitHub</a> thanks to the excellent documentation.  For my first post I thought I&#8217;d check out the code highlighting with a simple Ruby function to extend the core Fixnum class to allow an integer to be converted to Roman numerals.</p>
 
 <figure class='code'><figcaption><span>Convert to Roman Numerals</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -101,34 +101,40 @@
 <span class='line-number'>26</span>
 <span class='line-number'>27</span>
 <span class='line-number'>28</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">to_roman</span> <span class="n">year</span>
-</span><span class='line'>  <span class="n">s</span> <span class="o">=</span> <span class="nb">String</span><span class="o">.</span><span class="n">new</span>
-</span><span class='line'>  <span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-</span><span class='line'>    <span class="mi">1000</span> <span class="o">=&gt;</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span>
-</span><span class='line'>     <span class="mi">900</span> <span class="o">=&gt;</span> <span class="s2">&quot;CM&quot;</span><span class="p">,</span>
-</span><span class='line'>     <span class="mi">500</span> <span class="o">=&gt;</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span>
-</span><span class='line'>     <span class="mi">400</span> <span class="o">=&gt;</span> <span class="s2">&quot;CD&quot;</span><span class="p">,</span>
-</span><span class='line'>     <span class="mi">100</span> <span class="o">=&gt;</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span>
-</span><span class='line'>      <span class="mi">90</span> <span class="o">=&gt;</span> <span class="s2">&quot;XC&quot;</span><span class="p">,</span>
-</span><span class='line'>      <span class="mi">50</span> <span class="o">=&gt;</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span>
-</span><span class='line'>      <span class="mi">40</span> <span class="o">=&gt;</span> <span class="s2">&quot;XL&quot;</span><span class="p">,</span>
-</span><span class='line'>      <span class="mi">10</span> <span class="o">=&gt;</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span>
-</span><span class='line'>       <span class="mi">9</span> <span class="o">=&gt;</span> <span class="s2">&quot;IX&quot;</span><span class="p">,</span>
-</span><span class='line'>       <span class="mi">5</span> <span class="o">=&gt;</span> <span class="s2">&quot;V&quot;</span><span class="p">,</span>
-</span><span class='line'>       <span class="mi">4</span> <span class="o">=&gt;</span> <span class="s2">&quot;IV&quot;</span><span class="p">,</span>
-</span><span class='line'>       <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s2">&quot;I&quot;</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'>  <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">reverse_each</span> <span class="k">do</span> <span class="o">|</span><span class="n">k</span><span class="o">|</span>
-</span><span class='line'>    <span class="n">w</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="n">year</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">d</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">*</span> <span class="n">w</span>
-</span><span class='line'>    <span class="n">year</span> <span class="o">=</span> <span class="n">r</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Add a &#39;to_roman&#39; method to the core Fixnum class</span>
+</span><span class='line'><span class="no">Fixnum</span><span class="o">.</span><span class="n">class_eval</span> <span class="k">do</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">to_roman</span>
+</span><span class='line'>    <span class="n">year</span> <span class="o">=</span> <span class="nb">self</span>
+</span><span class='line'>    <span class="n">s</span> <span class="o">=</span> <span class="nb">String</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'>    <span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>      <span class="mi">1000</span> <span class="o">=&gt;</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span>
+</span><span class='line'>       <span class="mi">900</span> <span class="o">=&gt;</span> <span class="s2">&quot;CM&quot;</span><span class="p">,</span>
+</span><span class='line'>       <span class="mi">500</span> <span class="o">=&gt;</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span>
+</span><span class='line'>       <span class="mi">400</span> <span class="o">=&gt;</span> <span class="s2">&quot;CD&quot;</span><span class="p">,</span>
+</span><span class='line'>       <span class="mi">100</span> <span class="o">=&gt;</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="mi">90</span> <span class="o">=&gt;</span> <span class="s2">&quot;XC&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="mi">50</span> <span class="o">=&gt;</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="mi">40</span> <span class="o">=&gt;</span> <span class="s2">&quot;XL&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="mi">10</span> <span class="o">=&gt;</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span>
+</span><span class='line'>         <span class="mi">9</span> <span class="o">=&gt;</span> <span class="s2">&quot;IX&quot;</span><span class="p">,</span>
+</span><span class='line'>         <span class="mi">5</span> <span class="o">=&gt;</span> <span class="s2">&quot;V&quot;</span><span class="p">,</span>
+</span><span class='line'>         <span class="mi">4</span> <span class="o">=&gt;</span> <span class="s2">&quot;IV&quot;</span><span class="p">,</span>
+</span><span class='line'>         <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s2">&quot;I&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">reverse_each</span> <span class="k">do</span> <span class="o">|</span><span class="n">k</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">w</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="n">year</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">d</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">*</span> <span class="n">w</span>
+</span><span class='line'>      <span class="n">year</span> <span class="o">=</span> <span class="n">r</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>    <span class="n">s</span>
 </span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>  <span class="n">s</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'><span class="c1"># Example usage</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">to_roman</span> <span class="mi">2012</span> <span class="o">=&gt;</span> <span class="s2">&quot;MMXII&quot;</span>
+</span><span class='line'><span class="c1"># Example Usage</span>
+</span><span class='line'><span class="nb">puts</span> <span class="mi">2012</span><span class="o">.</span><span class="n">to_roman</span> <span class="o">=&gt;</span> <span class="s2">&quot;MMXII&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 ]]></content>

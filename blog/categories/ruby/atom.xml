@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Interoperate]]></title>
   <link href="http://jonwade.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
-  <updated>2012-01-15T23:11:42+00:00</updated>
+  <updated>2012-01-15T23:31:01+00:00</updated>
   <id>http://jonwade.github.com/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -66,43 +66,46 @@ git push origin source
     <link href="http://jonwade.github.com/blog/2012/01/15/ruby-roman-numeral-method/"/>
     <updated>2012-01-15T18:48:00+00:00</updated>
     <id>http://jonwade.github.com/blog/2012/01/15/ruby-roman-numeral-method</id>
-    <content type="html"><![CDATA[<p>Just gone live with this blog and I must say that I'm pretty impressed with <a href="http://octopress.org/">Octopress</a>.  It only took me a few minutes to get it setup and hosted on <a href="http://www.github.com/">GitHub</a> thanks to the excellent documentation.  For my first post I thought I'd check out the code highlighting with a simple Ruby function.</p>
+    <content type="html"><![CDATA[<p>Just gone live with this blog and I must say that I'm pretty impressed with <a href="http://octopress.org/">Octopress</a>.  It only took me a few minutes to get it setup and hosted on <a href="http://www.github.com/">GitHub</a> thanks to the excellent documentation.  For my first post I thought I'd check out the code highlighting with a simple Ruby function to extend the core Fixnum class to allow an integer to be converted to Roman numerals.</p>
 
-<p>``` ruby Convert to Roman Numerals
-def to_roman year
-  s = String.new
-  d = {</p>
+<p>``` ruby Convert to Roman Numerals</p>
 
-<pre><code>1000 =&gt; "M",
- 900 =&gt; "CM",
- 500 =&gt; "D",
- 400 =&gt; "CD",
- 100 =&gt; "C",
-  90 =&gt; "XC",
-  50 =&gt; "L",
-  40 =&gt; "XL",
-  10 =&gt; "X",
-   9 =&gt; "IX",
-   5 =&gt; "V",
-   4 =&gt; "IV",
-   1 =&gt; "I"
-</code></pre>
+<h1>Add a 'to_roman' method to the core Fixnum class</h1>
 
-<p>  }
-  d.keys.sort.reverse_each do |k|</p>
+<p>Fixnum.class_eval do
+  def to_roman</p>
 
-<pre><code>w,r = year.divmod(k)
-s = s + d[k] * w
-year = r
+<pre><code>year = self
+s = String.new
+d = {
+  1000 =&gt; "M",
+   900 =&gt; "CM",
+   500 =&gt; "D",
+   400 =&gt; "CD",
+   100 =&gt; "C",
+    90 =&gt; "XC",
+    50 =&gt; "L",
+    40 =&gt; "XL",
+    10 =&gt; "X",
+     9 =&gt; "IX",
+     5 =&gt; "V",
+     4 =&gt; "IV",
+     1 =&gt; "I"
+}
+d.keys.sort.reverse_each do |k|
+  w,r = year.divmod(k)
+  s = s + d[k] * w
+  year = r
+end
+s
 </code></pre>
 
 <p>  end
-  s
 end</p>
 
-<h1>Example usage</h1>
+<h1>Example Usage</h1>
 
-<p>to_roman 2012 => "MMXII"
+<p>puts 2012.to_roman => "MMXII"
 ```</p>
 ]]></content>
   </entry>
