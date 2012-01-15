@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Ruby | Interoperate - Jon Wade's Blog]]></title>
-  <link href="http://jonwade.github.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Blogging | Interoperate - Jon Wade's Blog]]></title>
+  <link href="http://jonwade.github.com/blog/categories/blogging/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
   <updated>2012-01-15T20:38:28+00:00</updated>
   <id>http://jonwade.github.com/</id>
@@ -21,52 +21,6 @@
     <content type="html"><![CDATA[<p>So, here I am at the start of 2012 with a bit of time on my hands being 'between contracts' so I thought I'd spend a bit of time updating my own website.  Having messed around a little bit I came to the conclusion was that all I really need is a blog site.  I was keen for it to be written in Ruby as that is my language of choice and I'm comfortable with it.  I generally have an aversion to Content Management Systems and didn't want anything too heavy.  I much prefer editing raw text files and don't like WYSIWYG editors.  After some pondering, I ended up at the excellent <a href="https://www.ruby-toolbox.com/">Ruby Toolbox</a> website which led me to <a href="http://octopress.org">Octopress</a> and so far I haven't been disappointed.  I took the decision to deploy it (for free) at Github Pages and so far the experience has been nothing more than seamless.  I can't believe that I was actually considering writing my own blog engine as a mountable Rails 3.1 engine.  I was up and running within 30 minutes and most of that time was spent deciding which fonts and colour scheme to use.</p>
 
 <p>Big thanks to Brandon Mathis for writing <a href="http://octopress.org">Octopress</a>.  It's a beautifully clean piece of code and exactly what I was looking for.  Blogging has never been so simple.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Convert Integers to Roman Numerals]]></title>
-    <link href="http://jonwade.github.com/blog/2012/01/15/convert-integer-to-roman-numerals/"/>
-    <updated>2012-01-15T18:48:00+00:00</updated>
-    <id>http://jonwade.github.com/blog/2012/01/15/convert-integer-to-roman-numerals</id>
-    <content type="html"><![CDATA[<p>Just gone live with this blog and I must say that I'm pretty impressed with <a href="http://octopress.org/">Octopress</a>.  It only took me a few minutes to get it setup and hosted on <a href="http://www.github.com/">GitHub</a> thanks to the excellent documentation.  For my first post I thought I'd check out the code highlighting with a simple Ruby function.</p>
-
-<p>``` ruby Convert to Roman Numerals
-def to_roman year
-  s = String.new
-  d = {</p>
-
-<pre><code>1000 =&gt; "M",
- 900 =&gt; "CM",
- 500 =&gt; "D",
- 400 =&gt; "CD",
- 100 =&gt; "C",
-  90 =&gt; "XC",
-  50 =&gt; "L",
-  40 =&gt; "XL",
-  10 =&gt; "X",
-   9 =&gt; "IX",
-   5 =&gt; "V",
-   4 =&gt; "IV",
-   1 =&gt; "I"
-</code></pre>
-
-<p>  }
-  d.keys.sort.reverse_each do |k|</p>
-
-<pre><code>w,r = year.divmod(k)
-s = s + d[k] * w
-year = r
-</code></pre>
-
-<p>  end
-  s
-end</p>
-
-<h1>Example usage</h1>
-
-<p>to_roman 2012 => "MMXII"
-```</p>
 ]]></content>
   </entry>
   
