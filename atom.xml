@@ -4,7 +4,7 @@
   <title><![CDATA[Interoperate]]></title>
   <link href="http://jonwade.github.com/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
-  <updated>2012-01-15T22:05:24+00:00</updated>
+  <updated>2012-01-15T22:11:13+00:00</updated>
   <id>http://jonwade.github.com/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -66,10 +66,10 @@ Pages are just as simple <code>rake new_page["about"]</code>.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Convert Integers to Roman Numerals]]></title>
-    <link href="http://jonwade.github.com/blog/2012/01/15/convert-integer-to-roman-numerals/"/>
+    <title type="html"><![CDATA[Ruby Roman Numeral Method]]></title>
+    <link href="http://jonwade.github.com/blog/2012/01/15/ruby-roman-numeral-method/"/>
     <updated>2012-01-15T18:48:00+00:00</updated>
-    <id>http://jonwade.github.com/blog/2012/01/15/convert-integer-to-roman-numerals</id>
+    <id>http://jonwade.github.com/blog/2012/01/15/ruby-roman-numeral-method</id>
     <content type="html"><![CDATA[<p>Just gone live with this blog and I must say that I&#8217;m pretty impressed with <a href="http://octopress.org/">Octopress</a>.  It only took me a few minutes to get it setup and hosted on <a href="http://www.github.com/">GitHub</a> thanks to the excellent documentation.  For my first post I thought I&#8217;d check out the code highlighting with a simple Ruby function.</p>
 
 <figure class='code'><figcaption><span>Convert to Roman Numerals</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>

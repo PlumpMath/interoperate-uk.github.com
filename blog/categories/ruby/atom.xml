@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Interoperate]]></title>
   <link href="http://jonwade.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
-  <updated>2012-01-15T22:05:24+00:00</updated>
+  <updated>2012-01-15T22:11:13+00:00</updated>
   <id>http://jonwade.github.com/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -61,10 +61,10 @@ git push origin source
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Convert Integers to Roman Numerals]]></title>
-    <link href="http://jonwade.github.com/blog/2012/01/15/convert-integer-to-roman-numerals/"/>
+    <title type="html"><![CDATA[Ruby Roman Numeral Method]]></title>
+    <link href="http://jonwade.github.com/blog/2012/01/15/ruby-roman-numeral-method/"/>
     <updated>2012-01-15T18:48:00+00:00</updated>
-    <id>http://jonwade.github.com/blog/2012/01/15/convert-integer-to-roman-numerals</id>
+    <id>http://jonwade.github.com/blog/2012/01/15/ruby-roman-numeral-method</id>
     <content type="html"><![CDATA[<p>Just gone live with this blog and I must say that I'm pretty impressed with <a href="http://octopress.org/">Octopress</a>.  It only took me a few minutes to get it setup and hosted on <a href="http://www.github.com/">GitHub</a> thanks to the excellent documentation.  For my first post I thought I'd check out the code highlighting with a simple Ruby function.</p>
 
 <p>``` ruby Convert to Roman Numerals
