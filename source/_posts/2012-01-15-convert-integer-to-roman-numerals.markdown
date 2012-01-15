@@ -34,6 +34,7 @@ def to_roman year
   s
 end
 
-to_roman 2012 => "MMXII" 
+# Example usage
 
+to_roman 2012 => "MMXII" 
 ```
