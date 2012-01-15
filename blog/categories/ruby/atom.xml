@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Interoperate]]></title>
   <link href="http://jonwade.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
-  <updated>2012-01-15T22:54:55+00:00</updated>
+  <updated>2012-01-15T22:58:04+00:00</updated>
   <id>http://jonwade.github.com/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -56,7 +56,7 @@ git commit -m 'updated'
 git push origin source
 ```</p>
 
-<p>A big thanks to Brandon Mathis for writing <a href="http://octopress.org">Octopress</a>.  It's a beautifully clean piece of code and exactly what I was looking for.  Blogging has never been so simple.</p>
+<p>A big thanks to <a href="http://brandonmathis.com/">Brandon Mathis</a> for writing <a href="http://octopress.org">Octopress</a>.  It's a beautifully clean piece of code and exactly what I was looking for.  Blogging has never been so simple.</p>
 ]]></content>
   </entry>
   
