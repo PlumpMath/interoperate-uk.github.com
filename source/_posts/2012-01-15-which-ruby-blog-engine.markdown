@@ -26,6 +26,7 @@ Octopress is a blogging framework for hackers. You should be comfortable running
 {% endblockquote %}
 
 Posts are create using a simple rake task `rake new_post["My New Interesting Post"]`.
+
 Pages are just as simple `rake new_page["about"]`.
 
 Once you have edited the posts using [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax, they are uploaded to Github pages using the following commands which I just wrapped up in a shell script:
