@@ -4,7 +4,7 @@
   <title><![CDATA[Jon Wade's Blog]]></title>
   <link href="http://jonwade.github.com/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
-  <updated>2012-01-15T16:40:37+00:00</updated>
+  <updated>2012-01-15T18:53:04+00:00</updated>
   <id>http://jonwade.github.com/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -12,5 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Just Testing]]></title>
+    <link href="http://jonwade.github.com/blog/2012/01/15/just-testing/"/>
+    <updated>2012-01-15T18:48:00+00:00</updated>
+    <id>http://jonwade.github.com/blog/2012/01/15/just-testing</id>
+    <content type="html"><![CDATA[<p>This is just a test.</p>
+
+<figure class='code'><figcaption><span>Convert to Roman Numerals</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">to_roman</span> <span class="n">year</span>
+</span><span class='line'>  <span class="n">s</span> <span class="o">=</span> <span class="nb">String</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'>  <span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>    <span class="mi">1000</span> <span class="o">=&gt;</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span>
+</span><span class='line'>     <span class="mi">900</span> <span class="o">=&gt;</span> <span class="s2">&quot;CM&quot;</span><span class="p">,</span>
+</span><span class='line'>     <span class="mi">500</span> <span class="o">=&gt;</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span>
+</span><span class='line'>     <span class="mi">400</span> <span class="o">=&gt;</span> <span class="s2">&quot;CD&quot;</span><span class="p">,</span>
+</span><span class='line'>     <span class="mi">100</span> <span class="o">=&gt;</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="mi">90</span> <span class="o">=&gt;</span> <span class="s2">&quot;XC&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="mi">50</span> <span class="o">=&gt;</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="mi">40</span> <span class="o">=&gt;</span> <span class="s2">&quot;XL&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="mi">10</span> <span class="o">=&gt;</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span>
+</span><span class='line'>       <span class="mi">9</span> <span class="o">=&gt;</span> <span class="s2">&quot;IX&quot;</span><span class="p">,</span>
+</span><span class='line'>       <span class="mi">5</span> <span class="o">=&gt;</span> <span class="s2">&quot;V&quot;</span><span class="p">,</span>
+</span><span class='line'>       <span class="mi">4</span> <span class="o">=&gt;</span> <span class="s2">&quot;IV&quot;</span><span class="p">,</span>
+</span><span class='line'>       <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s2">&quot;I&quot;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">reverse_each</span> <span class="k">do</span> <span class="o">|</span><span class="n">k</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">w</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="n">year</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">d</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">*</span> <span class="n">w</span>
+</span><span class='line'>    <span class="n">year</span> <span class="o">=</span> <span class="n">r</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">s</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
 </feed>
