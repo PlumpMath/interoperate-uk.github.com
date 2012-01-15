@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Jon Wade's Blog]]></title>
   <link href="http://jonwade.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
-  <updated>2012-01-15T19:21:29+00:00</updated>
+  <updated>2012-01-15T19:22:36+00:00</updated>
   <id>http://jonwade.github.com/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -52,9 +52,10 @@ year = r
   s
 end</p>
 
-<p>to_roman 2012 => "MMXII"</p>
+<h1>Example usage</h1>
 
-<p>```</p>
+<p>to_roman 2012 => "MMXII"
+```</p>
 ]]></content>
   </entry>
   

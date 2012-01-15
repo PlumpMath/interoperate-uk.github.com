@@ -4,7 +4,7 @@
   <title><![CDATA[Jon Wade's Blog]]></title>
   <link href="http://jonwade.github.com/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
-  <updated>2012-01-15T19:21:29+00:00</updated>
+  <updated>2012-01-15T19:22:36+00:00</updated>
   <id>http://jonwade.github.com/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -46,6 +46,8 @@
 <span class='line-number'>24</span>
 <span class='line-number'>25</span>
 <span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">to_roman</span> <span class="n">year</span>
 </span><span class='line'>  <span class="n">s</span> <span class="o">=</span> <span class="nb">String</span><span class="o">.</span><span class="n">new</span>
 </span><span class='line'>  <span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
@@ -70,6 +72,8 @@
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'>  <span class="n">s</span>
 </span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Example usage</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">to_roman</span> <span class="mi">2012</span> <span class="o">=&gt;</span> <span class="s2">&quot;MMXII&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
