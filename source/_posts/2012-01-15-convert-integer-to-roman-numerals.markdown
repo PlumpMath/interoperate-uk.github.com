@@ -33,4 +33,7 @@ def to_roman year
   end
   s
 end
+
+to_roman 2012 => "MMXII" 
+
 ```
