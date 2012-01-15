@@ -6,4 +6,4 @@ comments: true
 sharing: true
 footer: true
 ---
-My name is Jon Wade, I'm an IT contractor from Leeds in the UK.
+My name is Jon Wade, I'm a freelance IT contractor from Leeds in the UK.
