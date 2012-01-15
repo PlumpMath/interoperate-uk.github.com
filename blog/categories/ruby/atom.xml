@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Jon Wade's Blog]]></title>
   <link href="http://jonwade.github.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
-  <updated>2012-01-15T18:53:04+00:00</updated>
+  <updated>2012-01-15T19:10:33+00:00</updated>
   <id>http://jonwade.github.com/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -14,10 +14,10 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Just Testing]]></title>
-    <link href="http://jonwade.github.com/blog/2012/01/15/just-testing/"/>
+    <title type="html"><![CDATA[Convert Integers to Roman Numerals]]></title>
+    <link href="http://jonwade.github.com/blog/2012/01/15/convert-integer-to-roman-numerals/"/>
     <updated>2012-01-15T18:48:00+00:00</updated>
-    <id>http://jonwade.github.com/blog/2012/01/15/just-testing</id>
+    <id>http://jonwade.github.com/blog/2012/01/15/convert-integer-to-roman-numerals</id>
     <content type="html"><![CDATA[<p>This is just a test.</p>
 
 <p>``` ruby Convert to Roman Numerals
