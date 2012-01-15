@@ -23,8 +23,20 @@ I generally have an aversion to Content Management Systems and didn't want anyth
 Octopress is a blogging framework for hackers. You should be comfortable running shell commands and familiar with the basics of Git. If that sounds daunting, Octopress probably isn’t for you.
 {% endblockquote %}
 
-Posts are create using a simple rake task `rake new_post["My New Interesting Post"]`
-Pages are just as simple `rake new_page["about"]`
-Posts are edited using [GitHub Flavoured Markdown](http://github.github.com/github-flavored-markdown/) syntax.  On top of this, there are several [plugins](http://octopress.org/docs/plugins/) to enhance the whole publishing experience.
+Posts are create using a simple rake task `rake new_post["My New Interesting Post"]`.
+Pages are just as simple `rake new_page["about"]`.
+
+Once you have edited the posts using [Markdown](http://github.github.com/github-flavored-markdown/) syntax, they are uploaded to Github pages using the following shell script:
+
+``` bash
+#!/bin/bash
+# This will deploy the site to your git 'master' branch
+rake generate
+rake deploy
+# This will deploy the source code to git 'source' branch
+git add .
+git commit -m 'updated'
+git push origin source
+```
 
 A big thanks to Brandon Mathis for writing [Octopress](http://octopress.org).  It's a beautifully clean piece of code and exactly what I was looking for.  Blogging has never been so simple.
