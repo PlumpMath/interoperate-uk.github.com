@@ -25,9 +25,9 @@ My initial approach was to try and find something that I could plug in to a Rail
 Octopress is a blogging framework for hackers. You should be comfortable running shell commands and familiar with the basics of Git. If that sounds daunting, Octopress probably isn’t for you.
 {% endblockquote %}
 
-Posts are create using a simple rake task `rake new_post["My New Interesting Post"]`.
+Posts are created using a simple rake task `rake new_post["My New Interesting Post"]`.
 
-Pages are just as simple `rake new_page["about"]`.
+New Pages are created just as simply using `rake new_page["about"]`.
 
 Once you have edited the posts using [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax, they are uploaded to Github pages using the following commands which I just wrapped up in a shell script:
 
