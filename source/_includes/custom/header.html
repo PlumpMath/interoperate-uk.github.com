@@ -1,4 +1,4 @@
-<hgroup>
+<div id="header_left">
   <span>
   <a href="{{ root_url }}/"><img style='vertical-align:middle' src='{{ root_url }}/images/interoperate_icon_white.png'></a>
   <h1 style='vertical-align:middle'><a href="{{ root_url }}/">{{ site.title }}</a></h1>
@@ -6,4 +6,13 @@
   {% if site.subtitle %}
     <h2>{{ site.subtitle }}</h2>
   {% endif %}
-</hgroup>
+</div>
+
+<div id="header_right">
+  <span>
+  <a href="{{ site.linkedin_homepage }}"><img style='vertical-align:middle' src='{{ root_url }}/images/linkedin-32.png'></a>
+  <a href="{{ site.fecebook_homepage }}"><img style='vertical-align:middle' src='{{ root_url }}/images/facebook-32.png'></a>
+  <a href="{{ site.twitter_homepage }}"><img style='vertical-align:middle' src='{{ root_url }}/images/twitter-32.png'></a>
+  <a href="{{ site.googleplus_homepage }}"><img style='vertical-align:middle' src='{{ root_url }}/images/googleplus-32.png'></a>
+  </span>
+</div>
