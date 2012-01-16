@@ -6,7 +6,6 @@ url: http://jonwade.github.com
 title: Interoperate
 subtitle:  Unending Adventures in IT by Jon Wade
 author: Jon Wade
-organisation: Interoperate Ltd.
 simple_search: http://google.com/search
 description: A place for me to post important stuff so I don't forget about it.
 
@@ -71,7 +70,7 @@ twitter_show_replies: false
 twitter_follow_button: true
 twitter_show_follower_count: false
 twitter_tweet_button: true
-twitter_homepage: "https://twitter.com/#!/Interoper8"
+
 
 # Google +1
 google_plus_one: true
@@ -81,7 +80,6 @@ google_plus_one_size: medium
 # Hidden: No visible button, just add author information to search results
 googleplus_user: 109744129508056468090
 googleplus_hidden: true
-googleplus_homepage: https://plus.google.com/109744129508056468090
 
 # Pinboard
 pinboard_user:
@@ -100,7 +98,4 @@ google_analytics_tracking_id: UA-28372527-1
 
 # Facebook Like
 facebook_like: true
-facebook_homepage: http://www.facebook.com/pages/Interoperate/344511882244934
 
-# Linked In
-linkedin_homepage: http://www.linkedin.com/in/jonwade
