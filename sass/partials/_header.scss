@@ -1,10 +1,5 @@
-header {
-//  background: $header-bg;
-  background:url('/images/abstract-glossy-vector.jpg');
-  background-repeat:no-repeat;
-  background-size:100% 100%;
-  -webkit-background-origin:content-box; /* Safari */
-  background-origin:content-box;
+body > header {
+  background: $header-bg;
   h1 {
     display: inline-block;
     margin: 0;
