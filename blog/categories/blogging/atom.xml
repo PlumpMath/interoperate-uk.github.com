@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blogging | Interoperate]]></title>
   <link href="http://jonwade.github.com/blog/categories/blogging/atom.xml" rel="self"/>
   <link href="http://jonwade.github.com/"/>
-  <updated>2012-01-16T00:24:24+00:00</updated>
+  <updated>2012-01-16T00:32:37+00:00</updated>
   <id>http://jonwade.github.com/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -35,9 +35,9 @@
 <p>My initial approach was to try and find something that I could plug in to a Rails 3.1 application as an engine and update through a browser.  However, I generally have an aversion to Content Management Systems and didn't want anything too heavy.  I much prefer editing raw text files and don't like WYSIWYG editors.  After some pondering, I ended up at the excellent <a href="https://www.ruby-toolbox.com/">Ruby Toolbox</a> website which led me to <a href="http://octopress.org">Octopress</a> and so far I haven't been disappointed.  I took the decision to deploy it (for free) at Github Pages and so far the experience has been entirely pleasurable.  <a href="http://octopress.org">Octopress</a> is based on the <a href="https://github.com/mojombo/jekyll">Jekyll</a> static site generator that is used by Github pages.  I can't believe that I was actually considering writing my own blog engine as a mountable Rails 3.1 engine.  I was up and running within 30 minutes and most of that time was spent deciding which fonts and colour scheme to use.  Updating the website is as simple as committing to Git so if you're comfortable with that then you will find it a walk in the park.  As the author acknowledges:
 <blockquote><p>Octopress is a blogging framework for hackers. You should be comfortable running shell commands and familiar with the basics of Git. If that sounds daunting, Octopress probably isn’t for you.</p><footer><strong>Brandon Mathis</strong> <cite><a href='http://octopress.org/docs/setup/'>octopress.org/docs/setup/&hellip;</a></cite></footer></blockquote></p>
 
-<p>Posts are create using a simple rake task <code>rake new_post["My New Interesting Post"]</code>.</p>
+<p>Posts are created using a simple rake task <code>rake new_post["My New Interesting Post"]</code>.</p>
 
-<p>Pages are just as simple <code>rake new_page["about"]</code>.</p>
+<p>New Pages are created just as simply using <code>rake new_page["about"]</code>.</p>
 
 <p>Once you have edited the posts using <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> syntax, they are uploaded to Github pages using the following commands which I just wrapped up in a shell script:</p>
 
