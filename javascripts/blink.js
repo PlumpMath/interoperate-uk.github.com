@@ -18,7 +18,7 @@ function eight(){
 }
 
 function seven(){
-  $("#7").show().jTypeWriter({duration:0.5});;
+  $("#7").show().jTypeWriter({duration:0.5});
   setTimeout(eight, 1000);
 }
 
