@@ -10,8 +10,6 @@ localhost$ <span id="2" style="display:none">ssh jon@interoperate.co.uk</span>
 <span id="6" style='display:none'>interoperate.co.uk$ <span id="7" style="display:none">tree -d ~</span>
 <span id="8" style="display:none">/home/jon
 ├── <a href="/about">about</a>
-├── my-band
-|   └── <a href="http://www.thereason.net">the-reason</a>
 ├── blog
 |   ├── <a href="{{ root_url }}/">blog</a>
 |   └── <a href="{{ root_url }}/blog/archives">archive</a>
@@ -22,6 +20,8 @@ localhost$ <span id="2" style="display:none">ssh jon@interoperate.co.uk</span>
 ├── code
 |   └── <a href="http://github.com/jonwade/">github</a>
 ├── <a href="/contact">contact</a>
+├── my-band
+|   └── <a href="http://www.thereason.net">the-reason</a>
 └── social_media
     ├── <a href="https://twitter.com/#!/Interoper8">twitter</a>
     ├── <a href="http://www.facebook.com/pages/Interoperate/344511882244934">facebook</a>
