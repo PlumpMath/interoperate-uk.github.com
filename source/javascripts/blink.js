@@ -12,13 +12,23 @@ var blink_closure = (function () {
   };
 })();
 
-function six(){
-  $("#6").show();
+function eight(){
+  $("#8").show();
   setInterval(blink_closure, 1000);
 }
 
+function seven(){
+  $("#7").show().jTypeWriter({duration:0.5});;
+  setTimeout(eight, 1000);
+}
+
+function six(){
+  $("#6").show();
+  setTimeout(seven, 1000);
+}
+
 function five(){
-  $("#5").show().jTypeWriter({duration:0.5});;
+  $("#5").show();
   setTimeout(six, 1000);
 }
 
