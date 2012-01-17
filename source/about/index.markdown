@@ -16,13 +16,13 @@ I've spent most of my working life employed by global systems integration consul
 
 I started my IT career as a UNIX systems administrator. Since then I've worked as an integration engineer, software developer, solution architect and technical delivery manager. I've been freelance since 2008. I understand what it takes to design and deliver successful IT systems and perhaps more importantly, I've observed the behaviours that can lead to unsuccessful IT programmes.
 
-Historically, I honed my technical skills in the areas of IT infrastructure, application middleware and enterprise messaging and directory systems. Over the last 7 years, I've worked as a solution architect and a delivery manager. I'm also a proficient software developer although this has become more of a hobby in recent times. I now tend to focus on the end-to-end process, from eliciting clear business requirements through to the delivery of business services and everything in between.
+Historically, I honed my technical skills in the areas of IT infrastructure, application middleware and enterprise messaging and directory systems. Over the last 7 years, I've worked as a solution architect and a delivery manager. I'm also a proficient software developer and over the last few years have been using Ruby on Rails for most projects that I get involved in.  I tend to focus on the end-to-end process, from eliciting clear business requirements through to the delivery of business services and everything in between.
 
-Outside work, I'm married with a young family. I'm also the lead singer and keyboard player in a band.
+Outside work, I'm married with a young family. I'm also the lead singer and keyboard player in a band called [The Reason](http://www.thereason.net).
 
 ## My Philosophy
 
-The more experience I've gained, the more I've learnt that successful IT programmes are less about technology and more about people doing business. My job is designing and delivering robust business IT systems that enable people to do their jobs but still retain the flexibility to adapt to ever changing business requirements. The industry term for this is 'Enterprise Architecture'. I call it common sense.
+The more experience I've gained, the more I've learnt that successful IT programmes are less about technology and more about people doing business. My job is designing and delivering robust business IT systems that enable people to do their jobs but still retain the flexibility to adapt to ever changing business requirements.
 
 I approach IT projects from a number of viewpoints, as a solution architect, developer and a service manager.  I've worked with different methodologies for software solution delivery.  At one extreme I've worked on large public sector projects using tools such as TOGAF, UML and the waterfall approach.  On smaller projects I've used Agile development methods such as Extreme Programming.  From a job satisfaction perspective, I much prefer the Agile approach but appreciate that it's not suited to very large projects.  It's really important to pick the right framework based on key criteria such as the size / risk value of the project, and the organisation.  I find that an appreciation of all methods is useful and the bits that work from each can often be combined to good effect.
 
