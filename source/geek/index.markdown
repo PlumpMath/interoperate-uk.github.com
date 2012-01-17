@@ -9,7 +9,6 @@ localhost$ <span id="2" style="display:none">ssh jon@interoperate.co.uk</span>
 <span id="5" style="display:none">Have a lot of fun...</span>
 <span id="6" style='display:none'>interoperate.co.uk$ <span id="7" style="display:none">tree -d ~</span>
 <span id="8" style="display:none">/home/jon
-.
 ├── <a href="/about">about</a>
 ├── blog
 |   ├── <a href="{{ root_url }}/blog">blog</a>
