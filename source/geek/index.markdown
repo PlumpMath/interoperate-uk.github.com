@@ -7,7 +7,7 @@ localhost$ <span id="2" style="display:none">ssh jon@interoperate.co.uk</span>
 <span id="3" style="display:none">jon@interoperate.co.uk's password:</span>
 <span id="4" style="display:none">Last login: Fri Oct  7 12:26:12 2011 from host-92-27-7-204.static.as13285.net</span>
 <span id="5" style="display:none">Have a lot of fun...</span>
-<span id='6' style='display:none'>interoperate.co.uk$ <span id="7" style="display:none">tree -d ~</span>
+<span id="6" style='display:none'>interoperate.co.uk$ <span id="7" style="display:none">tree -d ~</span>
 <span id="8" style="display:none">/home/jon
 .
 ├── <a href="/about">about</a>
