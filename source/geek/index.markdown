@@ -11,7 +11,7 @@ localhost$ <span id="2" style="display:none">ssh jon@interoperate.co.uk</span>
 <span id="8" style="display:none">/home/jon
 ├── <a href="/about">about</a>
 ├── blog
-|   ├── <a href="{{ root_url }}/blog">blog</a>
+|   ├── <a href="{{ root_url }}/">blog</a>
 |   └── <a href="{{ root_url }}/blog/archive">archive</a>
 ├── clients
 |   ├── <a href="http://www.saneftolling.co.uk">sanef_tolling</a>
