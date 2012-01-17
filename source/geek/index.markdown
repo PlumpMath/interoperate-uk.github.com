@@ -22,7 +22,7 @@ localhost$ <span id="2" style="display:none">ssh jon@interoperate.co.uk</span>
 ├── <a href="/contact">contact</a>
 ├── my-band
 |   └── <a href="http://www.thereason.net">the-reason</a>
-└── social_media
+└── social-media
     ├── <a href="https://twitter.com/#!/Interoper8">twitter</a>
     ├── <a href="http://www.facebook.com/pages/Interoperate/344511882244934">facebook</a>
     ├── <a href="http://www.linkedin.com/in/jonwade">linkedin</a>
