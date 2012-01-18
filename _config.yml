@@ -65,8 +65,8 @@ github_skip_forks: true
 
 # Twitter
 twitter_user: interoper8
-twitter_tweet_count: 4
-twitter_show_replies: false
+twitter_tweet_count: 8
+twitter_show_replies: true
 twitter_follow_button: true
 twitter_show_follower_count: false
 twitter_tweet_button: true
