@@ -23,4 +23,6 @@ Killer features for me are:
 
 It couldn't be simpler.  All I now really need to worry about is keeping paper copies of invoices and receipts in a shoe box to keep the tax man happy.
 
+{ %blockquote %}
 Conclusion.  I'm really impressed with [Xero](http://www.xero.com).  It's an fine example of a hosted service that just works and is a pleasure to use.  I can see many small companies that currently use spreadsheets, [Sage](http://www.sage.co.uk/) or [Quickbooks](http://www.intuit.co.uk/) migrating to [Xero](http://www.xero.com) in the coming months.
+{ %endblockquote %}
