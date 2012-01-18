@@ -1,39 +1,39 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://jonwade.github.com/blog/2012/01/15/ruby-roman-numeral-method/</loc>
+        <loc>http://www.interoperate.co.uk/blog/2012/01/15/ruby-roman-numeral-method/</loc>
         <lastmod>2012-01-15T23:30:52+00:00</lastmod>
     </url>
     <url>
-        <loc>http://jonwade.github.com/blog/2012/01/15/which-ruby-blog-engine/</loc>
+        <loc>http://www.interoperate.co.uk/blog/2012/01/15/which-ruby-blog-engine/</loc>
         <lastmod>2012-01-16T00:32:28+00:00</lastmod>
     </url>
     <url>
-        <loc>http://jonwade.github.com/blog/2012/01/17/no-fuss-accounting-with-xero/</loc>
+        <loc>http://www.interoperate.co.uk/blog/2012/01/17/no-fuss-accounting-with-xero/</loc>
         <lastmod>2012-01-18T00:33:32+00:00</lastmod>
     </url>
     <url>
-        <loc>http://jonwade.github.com/about/</loc>
+        <loc>http://www.interoperate.co.uk/about/</loc>
         <lastmod>2012-01-18T11:21:56+00:00</lastmod>
     </url>
     <url>
-        <loc>http://jonwade.github.com/blank/</loc>
+        <loc>http://www.interoperate.co.uk/blank/</loc>
         <lastmod>2012-01-16T00:23:14+00:00</lastmod>
     </url>
     <url>
-        <loc>http://jonwade.github.com/blog/archives/</loc>
+        <loc>http://www.interoperate.co.uk/blog/archives/</loc>
         <lastmod>2012-01-18T00:33:32+00:00</lastmod>
     </url>
     <url>
-        <loc>http://jonwade.github.com/contact/</loc>
+        <loc>http://www.interoperate.co.uk/contact/</loc>
         <lastmod>2012-01-15T22:21:17+00:00</lastmod>
     </url>
     <url>
-        <loc>http://jonwade.github.com/geek/</loc>
+        <loc>http://www.interoperate.co.uk/geek/</loc>
         <lastmod>2012-01-18T00:17:33+00:00</lastmod>
     </url>
     <url>
-        <loc>http://jonwade.github.com/</loc>
+        <loc>http://www.interoperate.co.uk/</loc>
         <lastmod>2012-01-18T00:33:32+00:00</lastmod>
     </url>
 </urlset>
