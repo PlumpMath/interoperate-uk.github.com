@@ -9,7 +9,7 @@ categories:
 - SaaS
 - Cloud Services
 ---
-One of the things that always catches up with me at this time of year is my year end accounts.  As a freelancer, keeping track of expenses and invoices throughout the year is something that I have always found a pain and it inevitably gets put on the back burner.  I've been using spreadsheets for the last few years and my client invoicing process has always been somewhat manual.  I needed a better system and was prepared to spend some cash if it met my requirements.  I came across [Xero](http://www.xero.com) after reading a review in [PC Pro](http://www.pcpro.co.uk/reviews/software/367120/xero) and decided to give it a go.  I pay £12+VAT per month which is slightly more that I wanted to pay but having used it for a month or so I would say that you definitely get what you pay for.
+One of the things that always catches up with me at this time of year is my year end accounts.  As a freelancer, keeping track of expenses and invoices throughout the year is something that I have always found a pain and it inevitably ends up on the back burner.  I've been using spreadsheets for the last few years and my client invoicing process has always been somewhat manual.  I needed a better system and was prepared to spend some cash if it met my requirements.  I came across [Xero](http://www.xero.com) after reading a review in [PC Pro](http://www.pcpro.co.uk/reviews/software/367120/xero) and decided to give it a go.  I pay £12+VAT per month which is slightly more that I wanted to pay but having used it for a month or so I would say that you definitely get what you pay for.
 
 Killer features for me are:
 <!-- More -->
