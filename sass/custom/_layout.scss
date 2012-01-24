@@ -21,9 +21,22 @@
 //$sidebar-width-wide: 300px;
 #header_left {
   float: left;
-  width: 45%;
 }
 
+#logo {
+  width: 70px;
+  float:left;
+}
+
+#title {
+  text-align: left;
+  float:right;
+}
+
+#strapline {
+  clear:both;
+  text-align: center;
+}
 #header_right {
   float: right;
 }
