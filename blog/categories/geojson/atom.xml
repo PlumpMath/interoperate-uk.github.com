@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: GeoJSON | Interoperate]]></title>
+  <link href="http://www.interoperate.co.uk/blog/categories/geojson/atom.xml" rel="self"/>
+  <link href="http://www.interoperate.co.uk/"/>
+  <updated>2012-02-07T11:11:21+00:00</updated>
+  <id>http://www.interoperate.co.uk/</id>
+  <author>
+    <name><![CDATA[Jon Wade]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Using OpenLayers with Rails]]></title>
+    <link href="http://www.interoperate.co.uk/blog/2012/02/07/using-openlayers-with-rails/"/>
+    <updated>2012-02-07T09:20:00+00:00</updated>
+    <id>http://www.interoperate.co.uk/blog/2012/02/07/using-openlayers-with-rails</id>
+    <content type="html"><![CDATA[<p>Over the last few years, I've worked on a few projects that have required the need to display information on a map.  Typically a polyline (or linestring) depicting a journey made by car.  I have previously used Google Maps and interacted directly with the Google Maps API.  However I don't like being tied into a single mapping provider and wanted the ability to easily switch between providers if required.  <a href="http://openlayers.org">OpenLayers</a> allows you to do this.  I'm using Rails and wanted an easy way of storing geodata in a database and have it displayed on a map by <a href="http://openlayers.org">OpenLayers</a>.  Here's what I ended up with.</p>
+
+<!-- More -->
+
+
+<h2>Serving up the geodata in Rails</h2>
+
+<p>I'm using Postgres for my main Rails database but I'm also using file based SQLite databases to store datasets of GPS data.  For simplicity, I have a single table called 'gps' with fields called 'datetime,lat,lon,speed'.  My data is generally broken down into 'trips' so I have separate files for each trip.</p>
+
+<p>```
+sqlite> .schema
+CREATE TABLE gps (datetime TEXT,lat REAL,lon REAL,speed REAL);</p>
+
+<p>sqlite> SELECT * FROM gps LIMIT 5;
+2012-02-03 11:15:07.000|53.858473|-1.42572|0.138
+2012-02-03 11:15:08.000|53.858473|-1.42572|1.3
+2012-02-03 11:15:09.000|53.858477|-1.425728|3.234
+2012-02-03 11:15:10.000|53.858487|-1.42575|6.318
+2012-02-03 11:15:11.000|53.858505|-1.425785|9.045
+```</p>
+
+<p>So, I want this data to be served up by Rails to <a href="http://openlayers.org">OpenLayers</a> in a format that it can understand.  I decided that the easiest way to do this was to use the <a href="http://geojson.org">GeoJSON</a> format as I could just create a 'trip' as a Ruby Hash object and then use Rails format to serve it up as a JSON object. So in my Trip model I defined a 'geojson' method that will return a Hash with the same structure as a <a href="http://geojson.org">GeoJSON</a> 'FeatureCollection' object:</p>
+
+<p>``` ruby trip.rb
+class Trip &lt; ActiveRecord::Base</p>
+
+<p>  def geojson</p>
+
+<pre><code>filename = File.join(Rails.root,'mydata.db')
+db = SQLite3::Database.new(filename)
+sql = "SELECT datetime,lon,lat FROM gps ORDER BY datetime ASC;"
+
+coordinates = []
+db.execute(sql) do |row|
+  coordinates &lt;&lt; [ row[1],row[2] ]
+end
+
+# return a GeoJSON 'FeatureCollection' 
+{ :type =&gt; "FeatureCollection",
+  :features =&gt; [
+    :geometry =&gt; {
+      :type =&gt; "GeometryCollection",
+      :geometries =&gt; [
+        { :type =&gt; "LineString", :coordinates =&gt; coordinates }
+      ]
+    }
+  ]
+} 
+</code></pre>
+
+<p>  end</p>
+
+<p>end
+```</p>
+
+<p>In my controller, I can then just serve up the @trip.geojson Hash as JSON using Rails's built in json renderer</p>
+
+<p>``` ruby trips_controller.rb
+class TripsController &lt; ApplicationController</p>
+
+<p>  def show</p>
+
+<pre><code>@trip = Trip.find(params[:id])
+respond_to do |format|
+  #format.html # show.html.erb
+  format.json { render json: @trip.geojson }
+end
+</code></pre>
+
+<p>  end</p>
+
+<p>end
+```</p>
+
+<p>Pointing my browser at http://localhost:3000/trips/1.json will now serve up the JSON file as follows:</p>
+
+<p>``` javascript http://localhost:3000/trips/1.json
+{
+  type: "FeatureCollection",
+  features: [</p>
+
+<pre><code>{
+  geometry: {
+    type: "GeometryCollection",
+    geometries: [
+      {
+        type: "LineString",
+        coordinates: [
+          [ -1.425713, 53.858375 ],
+          [ -1.425713, 53.858375 ],
+          [ -1.425713, 53.858373 ],
+          [ -1.425712, 53.858373 ],
+          [ -1.425712, 53.858372 ]
+        ]
+      }
+    ]
+  }
+}
+</code></pre>
+
+<p>  ]
+}
+```</p>
+
+<h2>Generating the Map</h2>
+
+<p>The next thing that I needed to do was to get a basic map up and running with OpenLayers.  There were also some other features that I wanted:</p>
+
+<ol>
+<li><p>To be able to switch between various base layers via a controller on the map:</p>
+
+<p> A. OpenStreetMaps
+ B. Google Maps (Roads)
+ C. Google Maps (Terrain)</p></li>
+<li><p>To be able to style the linestring.</p></li>
+<li><p>To be able to automatically set the center of the map and a sensible zoom level when the page is loaded.</p></li>
+</ol>
+
+
+<p>It took me a few hours digging through the OpenLayers API spec and Google to find all the answers but in the end I ended up with this.  The hardest parts were understanding the different projections and working out how the features are returned by the OpenLayers.Format.GeoJSON.read function so that they can be iterated over to set the bounds.</p>
+
+<p>``` javascript openlayers.js
+var map;</p>
+
+<p>function initializeMap() {
+  // This function is called by the body onload() event in the view</p>
+
+<p>  // Define a new map.  We want it to be loaded into the 'map_canvas' div in the view
+  map = new OpenLayers.Map('map_canvas');</p>
+
+<p>  // Add a LayerSwitcher controller
+  map.addControl(new OpenLayers.Control.LayerSwitcher());</p>
+
+<p>  // OpenStreetMaps
+  var osm = new OpenLayers.Layer.OSM();</p>
+
+<p>  // Google Maps (ROAD)
+  var gmap = new OpenLayers.Layer.Google(</p>
+
+<pre><code>"Google Maps",
+{ type: google.maps.MapTypeId.ROAD }
+</code></pre>
+
+<p>   );</p>
+
+<p>  // Google Maps (SATELLITE)
+  var gsat = new OpenLayers.Layer.Google(</p>
+
+<pre><code>"Google Satellite",
+{ type: google.maps.MapTypeId.SATELLITE }
+</code></pre>
+
+<p>  );</p>
+
+<p>  // Add the layers defined above to the map<br/>
+  map.addLayers([osm, gmap, gsat]);</p>
+
+<p>  // Set some styles
+  var myStyleMap = new OpenLayers.StyleMap({</p>
+
+<pre><code>'strokeColor': 'magenta',
+'strokeOpacity': 1.0,
+'strokeWidth': 2
+</code></pre>
+
+<p>  });</p>
+
+<p>  // Create a new vector layer including the above StyleMap
+  var vectorLayer = new OpenLayers.Layer.Vector(</p>
+
+<pre><code>"Trip",
+{ styleMap: myStyleMap }
+</code></pre>
+
+<p>  );   <br/>
+  map.addLayer(vectorLlayer);</p>
+
+<p>  // Get the polylines from Rails
+  var url = "/trips/1.json"
+  OpenLayers.loadURL(url, {}, null, function (response){</p>
+
+<pre><code>var geojson_format = new OpenLayers.Format.GeoJSON({
+  'internalProjection': new OpenLayers.Projection("EPSG:900913"),
+  'externalProjection': new OpenLayers.Projection("EPSG:4326")
+});
+
+//Read the GeoJSON
+var features = geojson_format.read(response.responseText,"FeatureCollection");
+
+var bounds;
+
+if(features) {
+  if(features.constructor != Array) {
+    features = [features];
+  }
+
+  // Iterate over the features and extend the bounds to the bounds of the geometries
+  for(var i=0; i&lt;features.length; ++i) {
+    if (!bounds) {
+      bounds = features[i].geometry.getBounds();
+    } else {
+      bounds.extend(features[i].geometry.getBounds());
+    }
+  }
+
+  // Add features to the 'vectorLayer'
+  vectorLayer.addFeatures(features);
+
+  // Set the extent of the map to the 'bounds'
+  map.zoomToExtent(bounds);
+}  
+</code></pre>
+
+<p>  });
+}
+```</p>
+
+<p>I've included screenshots below.  Note how the map has been centered on the geometry of the linestring and a sensible zoom level has been set.</p>
+
+<p><img src="/images/openstreetmap.jpg" title="OpenStreetMap" alt="OpenStreetMap">
+<img src="/images/google_roads.jpg" title="Google Maps (ROAD)" alt="Google Maps Road">
+<img src="/images/google_satellite.jpg" title="Google Maps (Satellite)" alt="Google Maps Satellite"></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,24 +1,132 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Interoperate]]></title>
-  <link href="http://www.interoperate.co.uk/atom.xml" rel="self"/>
-  <link href="http://www.interoperate.co.uk/"/>
-  <updated>2012-02-07T11:11:21+00:00</updated>
-  <id>http://www.interoperate.co.uk/</id>
-  <author>
-    <name><![CDATA[Jon Wade]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Using OpenLayers with Rails - Interoperate</title>
+  <meta name="author" content="Jon Wade">
 
   
-  <entry>
-    <title type="html"><![CDATA[Using OpenLayers with Rails]]></title>
-    <link href="http://www.interoperate.co.uk/blog/2012/02/07/using-openlayers-with-rails/"/>
-    <updated>2012-02-07T09:20:00+00:00</updated>
-    <id>http://www.interoperate.co.uk/blog/2012/02/07/using-openlayers-with-rails</id>
-    <content type="html"><![CDATA[<p>Over the last few years, I&#8217;ve worked on a few projects that have required the need to display information on a map.  Typically a polyline (or linestring) depicting a journey made by car.  I have previously used Google Maps and interacted directly with the Google Maps API.  However I don&#8217;t like being tied into a single mapping provider and wanted the ability to easily switch between providers if required.  <a href="http://openlayers.org">OpenLayers</a> allows you to do this.  I&#8217;m using Rails and wanted an easy way of storing geodata in a database and have it displayed on a map by <a href="http://openlayers.org">OpenLayers</a>.  Here&#8217;s what I ended up with.</p>
+  <meta name="description" content="Over the last few years, I&#8217;ve worked on a few projects that have required the need to display information on a map. Typically a polyline (or &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.interoperate.co.uk/blog/2012/02/07/using-openlayers-with-rails">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"  type="text/javascript"></script>
+  <script src="/javascripts/ender.js" type="text/javascript"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <link href="/atom.xml" rel="alternate" title="Interoperate" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<!-- <link href="http://fonts.googleapis.com/css?family=Lato:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,italic,extrabold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-28372527-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><div id="header_left">
+    <div id="logo">
+      <a href="/"><img style='vertical-align:middle' src='/images/interoperate_icon_white.png'></a>
+    </div>
+    <div id="title">
+      <h1 style='vertical-align:middle'><a href="/">Interoperate</a></h1>
+  </div>
+  
+  
+   <div id="strapline"><h2>Musings of an IT Freelancer</h2></div>
+  
+</div>
+
+<div id="header_right">
+  <span>
+  <a href="http://www.facebook.com/pages/Interoperate/344511882244934"><img style='vertical-align:middle' src='/images/facebook-32.png'></a>
+  <a href="https://twitter.com/#!/Interoper8"><img style='vertical-align:middle' src='/images/twitter-32.png'></a>
+  <a href="http://www.linkedin.com/in/jonwade"><img style='vertical-align:middle' src='/images/linkedin-32.png'></a>
+  <a href="https://plus.google.com/109744129508056468090"><img style='vertical-align:middle' src='/images/googleplus-32.png'></a>
+  </span>
+</div>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.interoperate.co.uk" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/contact">Contact</a></li>
+  <li><a href="/geek">Geek Version</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Using OpenLayers With Rails</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-07T09:20:00+00:00" pubdate data-updated="true">Feb 7<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Over the last few years, I&#8217;ve worked on a few projects that have required the need to display information on a map.  Typically a polyline (or linestring) depicting a journey made by car.  I have previously used Google Maps and interacted directly with the Google Maps API.  However I don&#8217;t like being tied into a single mapping provider and wanted the ability to easily switch between providers if required.  <a href="http://openlayers.org">OpenLayers</a> allows you to do this.  I&#8217;m using Rails and wanted an easy way of storing geodata in a database and have it displayed on a map by <a href="http://openlayers.org">OpenLayers</a>.  Here&#8217;s what I ended up with.</p>
 
 <!-- More -->
 
@@ -358,166 +466,187 @@
 
 <p>I&#8217;ve included screenshots below.  Note how the map has been centered on the geometry of the linestring and a sensible zoom level has been set.</p>
 
-<p><img src="http://www.interoperate.co.uk/images/openstreetmap.jpg" title="OpenStreetMap" alt="OpenStreetMap">
-<img src="http://www.interoperate.co.uk/images/google_roads.jpg" title="Google Maps (ROAD)" alt="Google Maps Road">
-<img src="http://www.interoperate.co.uk/images/google_satellite.jpg" title="Google Maps (Satellite)" alt="Google Maps Satellite"></p>
-]]></content>
-  </entry>
+<p><img src="/images/openstreetmap.jpg" title="OpenStreetMap" alt="OpenStreetMap">
+<img src="/images/google_roads.jpg" title="Google Maps (ROAD)" alt="Google Maps Road">
+<img src="/images/google_satellite.jpg" title="Google Maps (Satellite)" alt="Google Maps Satellite"></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <entry>
-    <title type="html"><![CDATA[No Fuss Accounting with Xero]]></title>
-    <link href="http://www.interoperate.co.uk/blog/2012/01/17/no-fuss-accounting-with-xero/"/>
-    <updated>2012-01-17T23:08:00+00:00</updated>
-    <id>http://www.interoperate.co.uk/blog/2012/01/17/no-fuss-accounting-with-xero</id>
-    <content type="html"><![CDATA[<p>One of the things that always catches up with me at this time of year is my year end accounts.  As a freelancer, keeping track of expenses and invoices throughout the year is something that I have always found a pain and it inevitably ends up on the back burner.  I&#8217;ve been using spreadsheets for the last few years and my client invoicing process has always been somewhat manual.  I needed a better system and was prepared to spend some cash if it met my requirements.  I came across <a href="http://www.xero.com">Xero</a> after reading a review in <a href="http://www.pcpro.co.uk/reviews/software/367120/xero">PC Pro</a> and decided to give it a go.  I pay £12+VAT per month which is slightly more that I wanted to pay but having used it for a month or so I would say that you definitely get what you pay for.</p>
 
-<p>Killer features for me are:</p>
+<span class="byline author vcard">Posted by <span class="fn">Jon Wade</span></span>
 
-<!-- More -->
+      
 
 
-<ol>
-<li>Cloud based / SaaS solution - access from anywhere.  Nothing to install.  No backups to worry about.</li>
-<li>Automated bank feed - transactions from my HSBC business current account are sent directly to <a href="http://www.xero.com">Xero</a> to be reconciled.  Reconciliation is simply a matter of categorising the transaction and clicking &#8216;OK&#8217;.  It &#8216;learns&#8217; from previous transactions so will suggest an appropriate category for most transactions.</li>
-<li>Incoming transactions are reconciled against previously generated invoices.</li>
-<li>Role based access - my accountant has privileges to be able to do all the normal chart of accounts and year end submissions.</li>
-<li>Invoice generation.  I now produce all my invoices through <a href="http://www.xero.com">Xero</a>.  It&#8217;s really easy to add line items as I go along and then invoice at the end of the month.  Emails are sent directly from <a href="http://www.xero.com">Xero</a> to clients.</li>
-<li>VAT returns - I&#8217;ve yet to try this but will be doing this in a couple of weeks.</li>
-<li>iPhone App.  A fairly basic app allows you to keep track of accounts and invoices on the go.</li>
-</ol>
 
 
-<p>It couldn&#8217;t be simpler.  All I now really need to worry about is keeping paper copies of invoices and receipts in a shoe box to keep the tax man happy.</p>
 
-<h2>Conclusion</h2>
 
-<p>I&#8217;m really impressed with <a href="http://www.xero.com">Xero</a>.  It&#8217;s a fine example of a hosted service that just works and is a pleasure to use.  I can see many small companies that currently use spreadsheets, <a href="http://www.sage.co.uk/">Sage</a> or <a href="http://www.intuit.co.uk/">Quickbooks</a> migrating to <a href="http://www.xero.com">Xero</a> in the coming months.</p>
-]]></content>
-  </entry>
+
+
   
-  <entry>
-    <title type="html"><![CDATA[Which Ruby Blog Engine?]]></title>
-    <link href="http://www.interoperate.co.uk/blog/2012/01/15/which-ruby-blog-engine/"/>
-    <updated>2012-01-15T20:23:00+00:00</updated>
-    <id>http://www.interoperate.co.uk/blog/2012/01/15/which-ruby-blog-engine</id>
-    <content type="html"><![CDATA[<p>So, here I am at the start of 2012 with a bit of time on my hands being &#8216;between contracts&#8217; so I thought I&#8217;d spend a bit of time updating my own website.  After a little thought, I came to the conclusion that all I really need is a blog site for me to record anything that I find remotely interesting and worth sharing.  So, with that in mind, I set about finding a solution for a blogging engine.  My key requirements were the usual sort of thing:</p>
-
-<ul>
-<li>Written in Ruby</li>
-<li>Easily customisable</li>
-<li>Quick and easy to update and deploy</li>
-<li>Lightweight</li>
-<li>Code highlighting support</li>
-</ul>
 
 
-<!-- more -->
+<time datetime="2012-02-07T09:20:00+00:00" pubdate data-updated="true">Feb 7<span>th</span>, 2012</time>
+      
 
-
-<p>My initial approach was to try and find something that I could plug in to a Rails 3.1 application as an engine and update through a browser.  However, I generally have an aversion to Content Management Systems and didn&#8217;t want anything too heavy.  I much prefer editing raw text files and don&#8217;t like WYSIWYG editors.  After some pondering, I ended up at the excellent <a href="https://www.ruby-toolbox.com/">Ruby Toolbox</a> website which led me to <a href="http://octopress.org">Octopress</a> and so far I haven&#8217;t been disappointed.  I took the decision to deploy it (for free) at Github Pages and so far the experience has been entirely pleasurable.  <a href="http://octopress.org">Octopress</a> is based on the <a href="https://github.com/mojombo/jekyll">Jekyll</a> static site generator that is used by Github pages.  I can&#8217;t believe that I was actually considering writing my own blog engine as a mountable Rails 3.1 engine.  I was up and running within 30 minutes and most of that time was spent deciding which fonts and colour scheme to use.  Updating the website is as simple as committing to Git so if you&#8217;re comfortable with that then you will find it a walk in the park.  As the author acknowledges:
-Liquid error: undefined method `map&#8217; for #&lt;String:0x0000010296e418></p>
-
-<p>Posts are created using a simple rake task <code>rake new_post["My New Interesting Post"]</code>.</p>
-
-<p>New Pages are created just as simply using <code>rake new_page["about"]</code>.</p>
-
-<p>Once you have edited the posts using <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> syntax, they are uploaded to Github pages using the following commands which I just wrapped up in a shell script:</p>
-
-<figure class='code'><figcaption><span>deploy.sh</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash</span>
-</span><span class='line'><span class="c"># This will generate the static files and deploy them to your Github pages &#39;master&#39; branch</span>
-</span><span class='line'>rake generate
-</span><span class='line'>rake deploy
-</span><span class='line'><span class="c"># This will deploy the source code to git &#39;source&#39; branch</span>
-</span><span class='line'>git add .
-</span><span class='line'>git commit -m <span class="s1">&#39;updated&#39;</span>
-</span><span class='line'>git push origin <span class="nb">source</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>A big thanks to <a href="http://brandonmathis.com/">Brandon Mathis</a> for writing <a href="http://octopress.org">Octopress</a>.  It&#8217;s a beautifully clean piece of code and exactly what I was looking for.  Blogging has never been so simple.</p>
-]]></content>
-  </entry>
+<span class="categories">
   
-  <entry>
-    <title type="html"><![CDATA[Ruby Roman Numeral Method]]></title>
-    <link href="http://www.interoperate.co.uk/blog/2012/01/15/ruby-roman-numeral-method/"/>
-    <updated>2012-01-15T18:48:00+00:00</updated>
-    <id>http://www.interoperate.co.uk/blog/2012/01/15/ruby-roman-numeral-method</id>
-    <content type="html"><![CDATA[<p>Just gone live with this blog and I must say that I&#8217;m pretty impressed with <a href="http://octopress.org/">Octopress</a>.  It only took me a few minutes to get it setup and hosted on <a href="http://www.github.com/">GitHub</a> thanks to the excellent documentation.  For my first post I thought I&#8217;d check out the code highlighting with a simple Ruby function to extend the core Fixnum class to allow an integer to be converted to Roman numerals.</p>
-
-<figure class='code'><figcaption><span>Convert to Roman Numerals</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Add a &#39;to_roman&#39; method to the core Fixnum class</span>
-</span><span class='line'><span class="no">Fixnum</span><span class="o">.</span><span class="n">class_eval</span> <span class="k">do</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">to_roman</span>
-</span><span class='line'>    <span class="n">year</span> <span class="o">=</span> <span class="nb">self</span>
-</span><span class='line'>    <span class="n">s</span> <span class="o">=</span> <span class="nb">String</span><span class="o">.</span><span class="n">new</span>
-</span><span class='line'>    <span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-</span><span class='line'>      <span class="mi">1000</span> <span class="o">=&gt;</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span>
-</span><span class='line'>       <span class="mi">900</span> <span class="o">=&gt;</span> <span class="s2">&quot;CM&quot;</span><span class="p">,</span>
-</span><span class='line'>       <span class="mi">500</span> <span class="o">=&gt;</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span>
-</span><span class='line'>       <span class="mi">400</span> <span class="o">=&gt;</span> <span class="s2">&quot;CD&quot;</span><span class="p">,</span>
-</span><span class='line'>       <span class="mi">100</span> <span class="o">=&gt;</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="mi">90</span> <span class="o">=&gt;</span> <span class="s2">&quot;XC&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="mi">50</span> <span class="o">=&gt;</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="mi">40</span> <span class="o">=&gt;</span> <span class="s2">&quot;XL&quot;</span><span class="p">,</span>
-</span><span class='line'>        <span class="mi">10</span> <span class="o">=&gt;</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span>
-</span><span class='line'>         <span class="mi">9</span> <span class="o">=&gt;</span> <span class="s2">&quot;IX&quot;</span><span class="p">,</span>
-</span><span class='line'>         <span class="mi">5</span> <span class="o">=&gt;</span> <span class="s2">&quot;V&quot;</span><span class="p">,</span>
-</span><span class='line'>         <span class="mi">4</span> <span class="o">=&gt;</span> <span class="s2">&quot;IV&quot;</span><span class="p">,</span>
-</span><span class='line'>         <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s2">&quot;I&quot;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">reverse_each</span> <span class="k">do</span> <span class="o">|</span><span class="n">k</span><span class="o">|</span>
-</span><span class='line'>      <span class="n">w</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="n">year</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-</span><span class='line'>      <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">d</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">*</span> <span class="n">w</span>
-</span><span class='line'>      <span class="n">year</span> <span class="o">=</span> <span class="n">r</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>    <span class="n">s</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Example Usage</span>
-</span><span class='line'><span class="nb">puts</span> <span class="mi">2012</span><span class="o">.</span><span class="n">to_roman</span> <span class="o">=&gt;</span> <span class="s2">&quot;MMXII&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
+    <a class='category' href='/blog/categories/gis/'>GIS</a>, <a class='category' href='/blog/categories/geojson/'>GeoJSON</a>, <a class='category' href='/blog/categories/openlayers/'>OpenLayers</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>
   
-</feed>
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.interoperate.co.uk/blog/2012/02/07/using-openlayers-with-rails/" data-via="interoper8" data-counturl="http://www.interoperate.co.uk/blog/2012/02/07/using-openlayers-with-rails/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/01/17/no-fuss-accounting-with-xero/" title="Previous Post: No Fuss Accounting with Xero">&laquo; No Fuss Accounting with Xero</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/02/07/using-openlayers-with-rails/">Using OpenLayers with Rails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/01/17/no-fuss-accounting-with-xero/">No Fuss Accounting with Xero</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/01/15/which-ruby-blog-engine/">Which Ruby Blog Engine?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/01/15/ruby-roman-numeral-method/">Ruby Roman Numeral Method</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("interoper8", 8, true);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/interoper8" class="twitter-follow-button" data-show-count="false">Follow @interoper8</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Interoperate Ltd. -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+<p>
+  Interoperate Ltd. - Registered in England &amp; Wales. Company Number: 06692068 -
+  VAT Registered: GB939564573
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'interoperate';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.interoperate.co.uk/blog/2012/02/07/using-openlayers-with-rails/';
+        var disqus_url = 'http://www.interoperate.co.uk/blog/2012/02/07/using-openlayers-with-rails/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

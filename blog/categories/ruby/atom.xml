@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Interoperate]]></title>
   <link href="http://www.interoperate.co.uk/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://www.interoperate.co.uk/"/>
-  <updated>2012-01-25T01:48:53+07:00</updated>
+  <updated>2012-02-07T11:11:21+00:00</updated>
   <id>http://www.interoperate.co.uk/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Which Ruby Blog Engine?]]></title>
     <link href="http://www.interoperate.co.uk/blog/2012/01/15/which-ruby-blog-engine/"/>
-    <updated>2012-01-15T20:23:00+07:00</updated>
+    <updated>2012-01-15T20:23:00+00:00</updated>
     <id>http://www.interoperate.co.uk/blog/2012/01/15/which-ruby-blog-engine</id>
     <content type="html"><![CDATA[<p>So, here I am at the start of 2012 with a bit of time on my hands being 'between contracts' so I thought I'd spend a bit of time updating my own website.  After a little thought, I came to the conclusion that all I really need is a blog site for me to record anything that I find remotely interesting and worth sharing.  So, with that in mind, I set about finding a solution for a blogging engine.  My key requirements were the usual sort of thing:</p>
 
@@ -33,7 +33,7 @@
 
 
 <p>My initial approach was to try and find something that I could plug in to a Rails 3.1 application as an engine and update through a browser.  However, I generally have an aversion to Content Management Systems and didn't want anything too heavy.  I much prefer editing raw text files and don't like WYSIWYG editors.  After some pondering, I ended up at the excellent <a href="https://www.ruby-toolbox.com/">Ruby Toolbox</a> website which led me to <a href="http://octopress.org">Octopress</a> and so far I haven't been disappointed.  I took the decision to deploy it (for free) at Github Pages and so far the experience has been entirely pleasurable.  <a href="http://octopress.org">Octopress</a> is based on the <a href="https://github.com/mojombo/jekyll">Jekyll</a> static site generator that is used by Github pages.  I can't believe that I was actually considering writing my own blog engine as a mountable Rails 3.1 engine.  I was up and running within 30 minutes and most of that time was spent deciding which fonts and colour scheme to use.  Updating the website is as simple as committing to Git so if you're comfortable with that then you will find it a walk in the park.  As the author acknowledges:
-<blockquote><p>Octopress is a blogging framework for hackers. You should be comfortable running shell commands and familiar with the basics of Git. If that sounds daunting, Octopress probably isn’t for you.</p><footer><strong>Brandon Mathis</strong> <cite><a href='http://octopress.org/docs/setup/'>octopress.org/docs/setup/&hellip;</a></cite></footer></blockquote></p>
+Liquid error: undefined method `map' for #<String:0x000001029c3648></p>
 
 <p>Posts are created using a simple rake task <code>rake new_post["My New Interesting Post"]</code>.</p>
 
@@ -64,7 +64,7 @@ git push origin source
   <entry>
     <title type="html"><![CDATA[Ruby Roman Numeral Method]]></title>
     <link href="http://www.interoperate.co.uk/blog/2012/01/15/ruby-roman-numeral-method/"/>
-    <updated>2012-01-15T18:48:00+07:00</updated>
+    <updated>2012-01-15T18:48:00+00:00</updated>
     <id>http://www.interoperate.co.uk/blog/2012/01/15/ruby-roman-numeral-method</id>
     <content type="html"><![CDATA[<p>Just gone live with this blog and I must say that I'm pretty impressed with <a href="http://octopress.org/">Octopress</a>.  It only took me a few minutes to get it setup and hosted on <a href="http://www.github.com/">GitHub</a> thanks to the excellent documentation.  For my first post I thought I'd check out the code highlighting with a simple Ruby function to extend the core Fixnum class to allow an integer to be converted to Roman numerals.</p>
 

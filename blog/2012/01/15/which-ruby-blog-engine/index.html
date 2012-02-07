@@ -117,7 +117,7 @@
   
 
 
-<time datetime="2012-01-15T20:23:00+07:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
+<time datetime="2012-01-15T20:23:00+00:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -140,10 +140,8 @@
 <!-- more -->
 
 
-<p>My initial approach was to try and find something that I could plug in to a Rails 3.1 application as an engine and update through a browser.  However, I generally have an aversion to Content Management Systems and didn&#8217;t want anything too heavy.  I much prefer editing raw text files and don&#8217;t like WYSIWYG editors.  After some pondering, I ended up at the excellent <a href="https://www.ruby-toolbox.com/">Ruby Toolbox</a> website which led me to <a href="http://octopress.org">Octopress</a> and so far I haven&#8217;t been disappointed.  I took the decision to deploy it (for free) at Github Pages and so far the experience has been entirely pleasurable.  <a href="http://octopress.org">Octopress</a> is based on the <a href="https://github.com/mojombo/jekyll">Jekyll</a> static site generator that is used by Github pages.  I can&#8217;t believe that I was actually considering writing my own blog engine as a mountable Rails 3.1 engine.  I was up and running within 30 minutes and most of that time was spent deciding which fonts and colour scheme to use.  Updating the website is as simple as committing to Git so if you&#8217;re comfortable with that then you will find it a walk in the park.  As the author acknowledges:</p>
-
-<blockquote><p>Octopress is a blogging framework for hackers. You should be comfortable running shell commands and familiar with the basics of Git. If that sounds daunting, Octopress probably isn’t for you.</p><footer><strong>Brandon Mathis</strong> <cite><a href='http://octopress.org/docs/setup/'>octopress.org/docs/setup/&hellip;</a></cite></footer></blockquote>
-
+<p>My initial approach was to try and find something that I could plug in to a Rails 3.1 application as an engine and update through a browser.  However, I generally have an aversion to Content Management Systems and didn&#8217;t want anything too heavy.  I much prefer editing raw text files and don&#8217;t like WYSIWYG editors.  After some pondering, I ended up at the excellent <a href="https://www.ruby-toolbox.com/">Ruby Toolbox</a> website which led me to <a href="http://octopress.org">Octopress</a> and so far I haven&#8217;t been disappointed.  I took the decision to deploy it (for free) at Github Pages and so far the experience has been entirely pleasurable.  <a href="http://octopress.org">Octopress</a> is based on the <a href="https://github.com/mojombo/jekyll">Jekyll</a> static site generator that is used by Github pages.  I can&#8217;t believe that I was actually considering writing my own blog engine as a mountable Rails 3.1 engine.  I was up and running within 30 minutes and most of that time was spent deciding which fonts and colour scheme to use.  Updating the website is as simple as committing to Git so if you&#8217;re comfortable with that then you will find it a walk in the park.  As the author acknowledges:
+Liquid error: undefined method `map&#8217; for #&lt;String:0x0000010296e418></p>
 
 <p>Posts are created using a simple rake task <code>rake new_post["My New Interesting Post"]</code>.</p>
 
@@ -193,7 +191,7 @@
   
 
 
-<time datetime="2012-01-15T20:23:00+07:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
+<time datetime="2012-01-15T20:23:00+00:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
       
 
 <span class="categories">
@@ -242,6 +240,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/02/07/using-openlayers-with-rails/">Using OpenLayers with Rails</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/01/17/no-fuss-accounting-with-xero/">No Fuss Accounting with Xero</a>
