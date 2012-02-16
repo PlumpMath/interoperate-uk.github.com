@@ -12,7 +12,7 @@ categories:
 Over the last few years, I've worked on a few projects that have required the need to display information on a map.  Typically a polyline (or linestring) depicting a journey made by car.  I have previously used Google Maps and interacted directly with the Google Maps API.  However I don't like being tied into a single mapping provider and wanted the ability to easily switch between providers if required.  [OpenLayers](http://openlayers.org) allows you to do this.  I'm using Rails and wanted an easy way of storing geodata in a database and have it displayed on a map by [OpenLayers](http://openlayers.org).  Here's what I ended up with.
 <!-- More -->
 ## Serving up the geodata in Rails
-I'm using Postgres for my main Rails database but I'm also using file based SQLite databases to store datasets of GPS data.  For simplicity, I have a single table called 'gps' with fields called 'datetime,lat,lon,speed'.  My data is generally broken down into 'trips' so I have separate files for each trip.
+I'm using PostgreSQL for my main Rails database but I'm also using file based SQLite databases to store datasets of GPS data.  For simplicity, I have a single table called 'gps' with fields called 'datetime,lat,lon,speed'.  My data is generally broken down into 'trips' so I have separate files for each trip.
 
 ```
 sqlite> .schema
@@ -90,7 +90,8 @@ Pointing my browser at http://localhost:3000/trips/1.json will now serve up the 
               [ -1.425713, 53.858375 ],
               [ -1.425713, 53.858373 ],
               [ -1.425712, 53.858373 ],
-              [ -1.425712, 53.858372 ]
+              [ -1.425712, 53.858372 ],
+              [ ... ]
             ]
           }
         ]
@@ -104,14 +105,11 @@ Pointing my browser at http://localhost:3000/trips/1.json will now serve up the 
 The next thing that I needed to do was to get a basic map up and running with OpenLayers.  There were also some other features that I wanted:
 
 1. To be able to switch between various base layers via a controller on the map:
-
-    A. OpenStreetMaps
-    B. Google Maps (Roads)
-    C. Google Maps (Terrain)
-  
+    * OpenStreetMaps
+    * Google Maps (Roads)
+    * Google Maps (Terrain)
 2. To be able to style the linestring.
-
-3. To be able to automatically set the center of the map and a sensible zoom level when the page is loaded.
+3. To be able to automatically centre the map on the center of the linestring and zoom to a sensible level when the page is loaded.
 
 It took me a few hours digging through the OpenLayers API spec and Google to find all the answers but in the end I ended up with this.  The hardest parts were understanding the different projections and working out how the features are returned by the OpenLayers.Format.GeoJSON.read function so that they can be iterated over to set the bounds.
 
