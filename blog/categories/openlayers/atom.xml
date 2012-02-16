@@ -4,7 +4,7 @@
   <title><![CDATA[Category: OpenLayers | Interoperate]]></title>
   <link href="http://www.interoperate.co.uk/blog/categories/openlayers/atom.xml" rel="self"/>
   <link href="http://www.interoperate.co.uk/"/>
-  <updated>2012-02-16T11:03:58+00:00</updated>
+  <updated>2012-02-16T11:57:44+00:00</updated>
   <id>http://www.interoperate.co.uk/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -25,7 +25,7 @@
 
 <h2>Serving up the geodata in Rails</h2>
 
-<p>I'm using Postgres for my main Rails database but I'm also using file based SQLite databases to store datasets of GPS data.  For simplicity, I have a single table called 'gps' with fields called 'datetime,lat,lon,speed'.  My data is generally broken down into 'trips' so I have separate files for each trip.</p>
+<p>I'm using PostgreSQL for my main Rails database but I'm also using file based SQLite databases to store datasets of GPS data.  For simplicity, I have a single table called 'gps' with fields called 'datetime,lat,lon,speed'.  My data is generally broken down into 'trips' so I have separate files for each trip.</p>
 
 <p>```
 sqlite> .schema
@@ -110,7 +110,8 @@ end
           [ -1.425713, 53.858375 ],
           [ -1.425713, 53.858373 ],
           [ -1.425712, 53.858373 ],
-          [ -1.425712, 53.858372 ]
+          [ -1.425712, 53.858372 ],
+          [ ... ]
         ]
       }
     ]
@@ -127,13 +128,16 @@ end
 <p>The next thing that I needed to do was to get a basic map up and running with OpenLayers.  There were also some other features that I wanted:</p>
 
 <ol>
-<li><p>To be able to switch between various base layers via a controller on the map:</p>
+<li>To be able to switch between various base layers via a controller on the map:
 
-<p> A. OpenStreetMaps
- B. Google Maps (Roads)
- C. Google Maps (Terrain)</p></li>
-<li><p>To be able to style the linestring.</p></li>
-<li><p>To be able to automatically set the center of the map and a sensible zoom level when the page is loaded.</p></li>
+<ul>
+<li>OpenStreetMaps</li>
+<li>Google Maps (Roads)</li>
+<li>Google Maps (Terrain)</li>
+</ul>
+</li>
+<li>To be able to style the linestring.</li>
+<li>To be able to automatically centre the map on the center of the linestring and zoom to a sensible level when the page is loaded.</li>
 </ol>
 
 

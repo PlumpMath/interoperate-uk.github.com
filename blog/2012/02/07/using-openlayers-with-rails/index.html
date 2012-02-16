@@ -133,7 +133,7 @@
 
 <h2>Serving up the geodata in Rails</h2>
 
-<p>I&#8217;m using Postgres for my main Rails database but I&#8217;m also using file based SQLite databases to store datasets of GPS data.  For simplicity, I have a single table called &#8216;gps&#8217; with fields called &#8216;datetime,lat,lon,speed&#8217;.  My data is generally broken down into &#8216;trips&#8217; so I have separate files for each trip.</p>
+<p>I&#8217;m using PostgreSQL for my main Rails database but I&#8217;m also using file based SQLite databases to store datasets of GPS data.  For simplicity, I have a single table called &#8216;gps&#8217; with fields called &#8216;datetime,lat,lon,speed&#8217;.  My data is generally broken down into &#8216;trips&#8217; so I have separate files for each trip.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -263,6 +263,7 @@
 <span class='line-number'>20</span>
 <span class='line-number'>21</span>
 <span class='line-number'>22</span>
+<span class='line-number'>23</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">{</span>
 </span><span class='line'>  <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;FeatureCollection&quot;</span><span class="p">,</span>
 </span><span class='line'>  <span class="nx">features</span><span class="o">:</span> <span class="p">[</span>
@@ -277,7 +278,8 @@
 </span><span class='line'>              <span class="p">[</span> <span class="o">-</span><span class="mf">1.425713</span><span class="p">,</span> <span class="mf">53.858375</span> <span class="p">],</span>
 </span><span class='line'>              <span class="p">[</span> <span class="o">-</span><span class="mf">1.425713</span><span class="p">,</span> <span class="mf">53.858373</span> <span class="p">],</span>
 </span><span class='line'>              <span class="p">[</span> <span class="o">-</span><span class="mf">1.425712</span><span class="p">,</span> <span class="mf">53.858373</span> <span class="p">],</span>
-</span><span class='line'>              <span class="p">[</span> <span class="o">-</span><span class="mf">1.425712</span><span class="p">,</span> <span class="mf">53.858372</span> <span class="p">]</span>
+</span><span class='line'>              <span class="p">[</span> <span class="o">-</span><span class="mf">1.425712</span><span class="p">,</span> <span class="mf">53.858372</span> <span class="p">],</span>
+</span><span class='line'>              <span class="p">[</span> <span class="p">...</span> <span class="p">]</span>
 </span><span class='line'>            <span class="p">]</span>
 </span><span class='line'>          <span class="p">}</span>
 </span><span class='line'>        <span class="p">]</span>
@@ -293,13 +295,16 @@
 <p>The next thing that I needed to do was to get a basic map up and running with OpenLayers.  There were also some other features that I wanted:</p>
 
 <ol>
-<li><p>To be able to switch between various base layers via a controller on the map:</p>
+<li>To be able to switch between various base layers via a controller on the map:
 
-<p> A. OpenStreetMaps
- B. Google Maps (Roads)
- C. Google Maps (Terrain)</p></li>
-<li><p>To be able to style the linestring.</p></li>
-<li><p>To be able to automatically set the center of the map and a sensible zoom level when the page is loaded.</p></li>
+<ul>
+<li>OpenStreetMaps</li>
+<li>Google Maps (Roads)</li>
+<li>Google Maps (Terrain)</li>
+</ul>
+</li>
+<li>To be able to style the linestring.</li>
+<li>To be able to automatically centre the map on the center of the linestring and zoom to a sensible level when the page is loaded.</li>
 </ol>
 
 
