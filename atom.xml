@@ -4,7 +4,7 @@
   <title><![CDATA[Interoperate]]></title>
   <link href="http://www.interoperate.co.uk/atom.xml" rel="self"/>
   <link href="http://www.interoperate.co.uk/"/>
-  <updated>2012-02-16T11:57:44+00:00</updated>
+  <updated>2012-02-16T12:45:54+00:00</updated>
   <id>http://www.interoperate.co.uk/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -491,8 +491,12 @@
 <span class='line-number'>29</span>
 <span class='line-number'>30</span>
 <span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Add a &#39;to_roman&#39; method to the core Fixnum class</span>
 </span><span class='line'><span class="no">Fixnum</span><span class="o">.</span><span class="n">class_eval</span> <span class="k">do</span>
+</span><span class='line'>
 </span><span class='line'>  <span class="k">def</span> <span class="nf">to_roman</span>
 </span><span class='line'>    <span class="n">year</span> <span class="o">=</span> <span class="nb">self</span>
 </span><span class='line'>    <span class="n">s</span> <span class="o">=</span> <span class="nb">String</span><span class="o">.</span><span class="n">new</span>
@@ -516,8 +520,10 @@
 </span><span class='line'>      <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">d</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">*</span> <span class="n">w</span>
 </span><span class='line'>      <span class="n">year</span> <span class="o">=</span> <span class="n">r</span>
 </span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
 </span><span class='line'>    <span class="n">s</span>
 </span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1"># Example Usage</span>
