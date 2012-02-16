@@ -12,6 +12,7 @@ Just gone live with this blog and I must say that I'm pretty impressed with [Oct
 ``` ruby Convert to Roman Numerals
 # Add a 'to_roman' method to the core Fixnum class
 Fixnum.class_eval do
+
   def to_roman
     year = self
     s = String.new
@@ -35,8 +36,10 @@ Fixnum.class_eval do
       s = s + d[k] * w
       year = r
     end
+
     s
   end
+  
 end
 
 # Example Usage
