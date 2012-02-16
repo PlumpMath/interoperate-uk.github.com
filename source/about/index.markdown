@@ -8,7 +8,7 @@ footer: true
 
 # Jon Wade
 
-I'm an IT freelancer based in Leeds, UK.  My company is called 'Interoperate Ltd'.  I'm an engineer at heart. A problem solver. I've been working on IT projects of all shapes and sizes since 1998. Prior to that, I spent a few years working in manufacturing as a graduate mechanical engineer but the opportunities presented by the growth of the internet in the mid 1990s were more than enough to lure me into a career in information technology.
+I'm an IT freelancer based in Leeds, UK.  My company is called 'Interoperate Ltd'.  I'm an engineer at heart. A problem solver. I've been working on IT projects of all shapes and sizes since 1998. Prior to that, I spent a few years working in manufacturing as a graduate mechanical engineer but the opportunities presented by the growth of the internet in the mid 1990s were more than enough to lure me into a career in IT.
 
 I've spent most of my working life employed by global systems integration consultancies in various capacities on some of the largest and smallest IT programmes in the world. From billion pound national IT programmes to bleeding edge prototype solutions on a tiny budget. My experience spans most market sectors, from governments to multinational engineering companies, from defence systems to international banking and transport.
 
