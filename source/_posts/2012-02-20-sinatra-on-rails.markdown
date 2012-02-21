@@ -100,7 +100,7 @@ Gem::Specification.new do |s|
   s.name = %q{my_app}
   s.version = "1.0.0"
   s.date = %q{2012-02-20}
-  s.summary = %q{testing}
+  s.summary = %q{blah blah blah}
   s.files = [
     "lib/my_app.rb"
   ]
@@ -133,12 +133,11 @@ class MyApp < Sinatra::Base
 end
 ```
 ### Mounting the Sinatra Application from Rails
-I'm going to mount my gem locally under the lib directory of my Rails application. So I drop the `my_app` folder into the lib directory of my Rails application  I now need to modify the Gemfile of my Rails application to load the [Sinatra](http://www.sinatrarb.com/) gem, `my_app` and also ensure that any gems required by the app are also loaded so I add the following lines:
+I'm going to mount my gem locally under the lib directory of my Rails application. So I drop the `my_app` folder into the lib directory of my Rails application  I now need to modify the Gemfile of my Rails application to load the [Sinatra](http://www.sinatrarb.com/) gem, as well as my new `my_app` gem and also any other gems required by the app so I add the following lines:
 
 ``` ruby Gemfile
 gem 'sinatra'
 gem 'haml'
-gem 'thin'
 gem 'my_app', :path => 'lib/my_app'
 ```
 After editing the `Gemfile` you then need to run `bundle update` to install the new gems.
@@ -153,6 +152,6 @@ Now, when I fire up my Rails application and browse to `http:.//localhost:3000/c
 {% img /images/sinatra2.png "Sinatra" "Sinatra" %}
 
 ## Conclusion
-[Sinatra](http://www.sinatrarb.com/) takes a blank canvas approach i.e. you start with nothing and you add what you need.  Conversely, when you create a new Rails application, you get a hell of a lot out of the box and as long as you stick with the Rails conventions, you can save yourself a lot of custom coding.  I like the minimalist aspect of [Sinatra](http://www.sinatrarb.com/) and its simplicity but feel that I would soon find myself missing some of the built-in functionality of Rails.  I'm pretty sure it would be possible to develop some very elegant web applications with very few lines of code.  I don't see it as an alternative to Rails but rather as complimentary for discrete functional modules.  It would certainly be very useful for knocking up quick prototypes or proof of solution activities.
+[Sinatra](http://www.sinatrarb.com/) takes a blank canvas approach i.e. you start with nothing and you add what you need.  Conversely, when you create a new Rails application, you get a hell of a lot out of the box and as long as you stick with the Rails conventions, you can save yourself a lot of custom coding.  I like the minimalist aspect of [Sinatra](http://www.sinatrarb.com/) and its simplicity but feel that I would soon find myself missing some of the built-in functionality of Rails.  I'm pretty sure it would be possible to develop some very elegant web applications with very few lines of code.  I don't see it as an alternative to Rails but rather as complimentary for discrete functional modules.  It would certainly be very useful for knocking up quick prototype APIs or proof of solution activities.
 
 For some examples of Sinatra in the wild, visit [http://www.sinatrarb.com/wild.html](http://www.sinatrarb.com/wild.html)
