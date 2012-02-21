@@ -42,9 +42,9 @@ __END__
 %h1 Hello From Sinatra
 %p= "Your IP address is: #{@client_ip}"
 ```
-That's it!  Note that this is the 'inline' flavour of a Sinatra application.  The view templates are embedded at the end of the ruby source file after the `__END__` keyword.  The view concept should be familiar to anyone used to Rails.  [Sinatra](http://www.sinatrarb.com/) expects a layout called 'layout' and will use that to embed views using the 'yield' keyword.  Routing is declared in the `get '/' do` code block.  Equally you could use 'post', 'put' etc. depending on the preferred HTTP verb and the path.  This application will print a simple message to the screen and notify the user of their client IP address.  To fire up the application, I just type:
+That's it!  Note that this is the 'inline' flavour of a Sinatra application.  The view templates are embedded at the end of the ruby source file after the `__END__` keyword.  The view concept should be familiar to anyone used to Rails.  [Sinatra](http://www.sinatrarb.com/) expects a layout called 'layout' and will use that to embed views using the 'yield' keyword.  Routing is declared in the `get '/' do` code block.  Equally you could use 'post', 'put' etc. depending on the preferred HTTP verb and the path.  This application will print a simple message to the screen and notify the user of their client IP address.  To fire up the application, I just type `ruby my_app.rb` as follows:
 
-    $ ruby myapp.rb
+    $ ruby my_app.rb
     == Sinatra/1.3.2 has taken the stage on 4567 for development with backup from Thin
     >> Thin web server (v1.3.1 codename Triple Espresso)
     >> Maximum connections set to 1024
@@ -57,9 +57,9 @@ Pointing my browser at http://localhost:4567 now shows:
 ## Refactoring
 OK, so it's not setting the world alight but it's quite cool having a web application in a single file with only 21 lines including routing and view templates.  The single file approach is good for minimalist applications but I prefer to have my code organised so I'm going to do some refactoring.  I'm going to move the layout and index templates into their own files in a separate folder.  By default, [Sinatra](http://www.sinatrarb.com/) expects views to live in `./views` so I'm going to stick with that.  You can override the views folder using the `set :views, '/path/to/my/views/folder'` declaration.
 
-So, my `myapp.rb` script now looks like this:
+So, my `my_app.rb` script now looks like this:
 
-``` ruby myapp.rb
+``` ruby my_app.rb
 require 'sinatra'
 require 'haml'
 
