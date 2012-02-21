@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | Interoperate]]></title>
   <link href="http://www.interoperate.co.uk/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://www.interoperate.co.uk/"/>
-  <updated>2012-02-21T11:53:11+00:00</updated>
+  <updated>2012-02-21T12:19:51+00:00</updated>
   <id>http://www.interoperate.co.uk/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -130,7 +130,7 @@ Gem::Specification.new do |s|
   s.name = %q{my_app}
   s.version = "1.0.0"
   s.date = %q{2012-02-20}
-  s.summary = %q{testing}
+  s.summary = %q{blah blah blah}
   s.files = [</p>
 
 <pre><code>"lib/my_app.rb"
@@ -172,12 +172,11 @@ haml :index, :format =&gt; :html5
 
 <h3>Mounting the Sinatra Application from Rails</h3>
 
-<p>I'm going to mount my gem locally under the lib directory of my Rails application. So I drop the <code>my_app</code> folder into the lib directory of my Rails application  I now need to modify the Gemfile of my Rails application to load the <a href="http://www.sinatrarb.com/">Sinatra</a> gem, <code>my_app</code> and also ensure that any gems required by the app are also loaded so I add the following lines:</p>
+<p>I'm going to mount my gem locally under the lib directory of my Rails application. So I drop the <code>my_app</code> folder into the lib directory of my Rails application  I now need to modify the Gemfile of my Rails application to load the <a href="http://www.sinatrarb.com/">Sinatra</a> gem, as well as my new <code>my_app</code> gem and also any other gems required by the app so I add the following lines:</p>
 
 <p><code>ruby Gemfile
 gem 'sinatra'
 gem 'haml'
-gem 'thin'
 gem 'my_app', :path =&gt; 'lib/my_app'
 </code>
 After editing the <code>Gemfile</code> you then need to run <code>bundle update</code> to install the new gems.</p>
@@ -193,7 +192,7 @@ mount MyApp =&gt; "/clientip"
 
 <h2>Conclusion</h2>
 
-<p><a href="http://www.sinatrarb.com/">Sinatra</a> takes a blank canvas approach i.e. you start with nothing and you add what you need.  Conversely, when you create a new Rails application, you get a hell of a lot out of the box and as long as you stick with the Rails conventions, you can save yourself a lot of custom coding.  I like the minimalist aspect of <a href="http://www.sinatrarb.com/">Sinatra</a> and its simplicity but feel that I would soon find myself missing some of the built-in functionality of Rails.  I'm pretty sure it would be possible to develop some very elegant web applications with very few lines of code.  I don't see it as an alternative to Rails but rather as complimentary for discrete functional modules.  It would certainly be very useful for knocking up quick prototypes or proof of solution activities.</p>
+<p><a href="http://www.sinatrarb.com/">Sinatra</a> takes a blank canvas approach i.e. you start with nothing and you add what you need.  Conversely, when you create a new Rails application, you get a hell of a lot out of the box and as long as you stick with the Rails conventions, you can save yourself a lot of custom coding.  I like the minimalist aspect of <a href="http://www.sinatrarb.com/">Sinatra</a> and its simplicity but feel that I would soon find myself missing some of the built-in functionality of Rails.  I'm pretty sure it would be possible to develop some very elegant web applications with very few lines of code.  I don't see it as an alternative to Rails but rather as complimentary for discrete functional modules.  It would certainly be very useful for knocking up quick prototype APIs or proof of solution activities.</p>
 
 <p>For some examples of Sinatra in the wild, visit <a href="http://www.sinatrarb.com/wild.html">http://www.sinatrarb.com/wild.html</a></p>
 ]]></content>

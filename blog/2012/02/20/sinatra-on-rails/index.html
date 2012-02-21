@@ -276,7 +276,7 @@ gem install haml
 </span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="sx">%q{my_app}</span>
 </span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;1.0.0&quot;</span>
 </span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="sx">%q{2012-02-20}</span>
-</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">summary</span> <span class="o">=</span> <span class="sx">%q{testing}</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">summary</span> <span class="o">=</span> <span class="sx">%q{blah blah blah}</span>
 </span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">files</span> <span class="o">=</span> <span class="o">[</span>
 </span><span class='line'>    <span class="s2">&quot;lib/my_app.rb&quot;</span>
 </span><span class='line'>  <span class="o">]</span>
@@ -325,15 +325,13 @@ gem install haml
 
 <h3>Mounting the Sinatra Application from Rails</h3>
 
-<p>I&#8217;m going to mount my gem locally under the lib directory of my Rails application. So I drop the <code>my_app</code> folder into the lib directory of my Rails application  I now need to modify the Gemfile of my Rails application to load the <a href="http://www.sinatrarb.com/">Sinatra</a> gem, <code>my_app</code> and also ensure that any gems required by the app are also loaded so I add the following lines:</p>
+<p>I&#8217;m going to mount my gem locally under the lib directory of my Rails application. So I drop the <code>my_app</code> folder into the lib directory of my Rails application  I now need to modify the Gemfile of my Rails application to load the <a href="http://www.sinatrarb.com/">Sinatra</a> gem, as well as my new <code>my_app</code> gem and also any other gems required by the app so I add the following lines:</p>
 
 <figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-<span class='line-number'>4</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;sinatra&#39;</span>
 </span><span class='line'><span class="n">gem</span> <span class="s1">&#39;haml&#39;</span>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;thin&#39;</span>
 </span><span class='line'><span class="n">gem</span> <span class="s1">&#39;my_app&#39;</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">&#39;lib/my_app&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -353,7 +351,7 @@ gem install haml
 
 <h2>Conclusion</h2>
 
-<p><a href="http://www.sinatrarb.com/">Sinatra</a> takes a blank canvas approach i.e. you start with nothing and you add what you need.  Conversely, when you create a new Rails application, you get a hell of a lot out of the box and as long as you stick with the Rails conventions, you can save yourself a lot of custom coding.  I like the minimalist aspect of <a href="http://www.sinatrarb.com/">Sinatra</a> and its simplicity but feel that I would soon find myself missing some of the built-in functionality of Rails.  I&#8217;m pretty sure it would be possible to develop some very elegant web applications with very few lines of code.  I don&#8217;t see it as an alternative to Rails but rather as complimentary for discrete functional modules.  It would certainly be very useful for knocking up quick prototypes or proof of solution activities.</p>
+<p><a href="http://www.sinatrarb.com/">Sinatra</a> takes a blank canvas approach i.e. you start with nothing and you add what you need.  Conversely, when you create a new Rails application, you get a hell of a lot out of the box and as long as you stick with the Rails conventions, you can save yourself a lot of custom coding.  I like the minimalist aspect of <a href="http://www.sinatrarb.com/">Sinatra</a> and its simplicity but feel that I would soon find myself missing some of the built-in functionality of Rails.  I&#8217;m pretty sure it would be possible to develop some very elegant web applications with very few lines of code.  I don&#8217;t see it as an alternative to Rails but rather as complimentary for discrete functional modules.  It would certainly be very useful for knocking up quick prototype APIs or proof of solution activities.</p>
 
 <p>For some examples of Sinatra in the wild, visit <a href="http://www.sinatrarb.com/wild.html">http://www.sinatrarb.com/wild.html</a></p>
 </div>
