@@ -8,7 +8,6 @@ categories:
 - Rails
 - HAML
 - Thin
-
 ---
 I'm always interested in approaches to modular and minimalist coding.  I've read a few articles about using [Sinatra](http://www.sinatrarb.com/) as a DSL for writing 'micro apps' and can see that it could be useful for writing lightweight applications and APIs and reusing code.  I was also interested from a re-use perspective in how a [Sinatra](http://www.sinatrarb.com/) 'micro app' could be embedded in a 'parent' Rails application.  Turns out it's pretty clean and straightforward.
 <!-- More -->
