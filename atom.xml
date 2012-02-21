@@ -4,7 +4,7 @@
   <title><![CDATA[Interoperate]]></title>
   <link href="http://www.interoperate.co.uk/atom.xml" rel="self"/>
   <link href="http://www.interoperate.co.uk/"/>
-  <updated>2012-02-16T12:45:54+00:00</updated>
+  <updated>2012-02-21T11:19:24+00:00</updated>
   <id>http://www.interoperate.co.uk/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -12,6 +12,244 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sinatra on Rails]]></title>
+    <link href="http://www.interoperate.co.uk/blog/2012/02/20/sinatra-on-rails/"/>
+    <updated>2012-02-20T21:16:00+00:00</updated>
+    <id>http://www.interoperate.co.uk/blog/2012/02/20/sinatra-on-rails</id>
+    <content type="html"><![CDATA[<p>I&#8217;m always interested in approaches to modular and minimalist coding.  I&#8217;ve read a few articles about using <a href="http://www.sinatrarb.com/">Sinatra</a> as a DSL for writing &#8216;micro apps&#8217; and can see that it could be useful for writing lightweight applications and APIs and reusing code.  I was also interested from a re-use perspective in how a <a href="http://www.sinatrarb.com/">Sinatra</a> &#8216;micro app&#8217; could be embedded in a &#8216;parent&#8217; Rails application.  Turns out it&#8217;s pretty clean and straightforward.</p>
+
+<!-- More -->
+
+
+<h2>Creating a Basic Sinatra Application</h2>
+
+<p>First install the Sinatra gem.</p>
+
+<pre><code>gem install sinatra
+gem install thin
+gem install haml 
+</code></pre>
+
+<p>I&#8217;ve included a few optional extras here. By default, <a href="http://www.sinatrarb.com/">Sinatra</a> will use WEBrick for the application server but <a href="http://code.macournoyer.com/thin/">Thin</a> will be used if it is installed.  Also, I much prefer using <a href="http://haml-lang.com/">HAML</a> (Yippeee!) markup over <a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/erb/rdoc/ERB.html">ERB</a> (Ugh, yuk *!&amp;%<sup>+!)</sup> for my view templates.  For my first trivial application I&#8217;m going to show a welcome message and tell the client their IP address (obtained from the &#8216;request&#8217; parameter).</p>
+
+<figure class='code'><figcaption><span>myapp.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;haml&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@client_ip</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">ip</span>
+</span><span class='line'>  <span class="n">haml</span> <span class="ss">:index</span><span class="p">,</span> <span class="ss">:format</span> <span class="o">=&gt;</span> <span class="ss">:html5</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">__END__</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">@@layout</span>
+</span><span class='line'><span class="cp">!!!</span>
+</span><span class='line'><span class="cp">%html</span>
+</span><span class='line'><span class="cp">  %head</span>
+</span><span class='line'><span class="cp">    %title</span>
+</span><span class='line'><span class="cp">  %body</span>
+</span><span class='line'><span class="cp">    = yield</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">@@index</span>
+</span><span class='line'><span class="cp">%h1 Hello From Sinatra</span>
+</span><span class='line'><span class="cp">%p= &quot;Your IP address is: #{@client_ip}&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That&#8217;s it!  Note that this is the &#8216;inline&#8217; flavour of a Sinatra application.  The view templates are embedded at the end of the ruby source file after the <code>__END__</code> keyword.  The view concept should be familiar to anyone used to Rails.  <a href="http://www.sinatrarb.com/">Sinatra</a> expects a layout called &#8216;layout&#8217; and will use that to embed views using the &#8216;yield&#8217; keyword.  Routing is declared in the <code>get '/' do</code> code block.  Equally you could use &#8216;post&#8217;, &#8216;put&#8217; etc. depending on the preferred HTTP verb and the path.  This application will print a simple message to the screen and notify the user of their client IP address.  To fire up the application, I just type:</p>
+
+<pre><code>$ ruby myapp.rb
+== Sinatra/1.3.2 has taken the stage on 4567 for development with backup from Thin
+&gt;&gt; Thin web server (v1.3.1 codename Triple Espresso)
+&gt;&gt; Maximum connections set to 1024
+&gt;&gt; Listening on 0.0.0.0:4567, CTRL+C to stop**
+</code></pre>
+
+<p>Pointing my browser at http://localhost:4567 now shows:</p>
+
+<p><img src="http://www.interoperate.co.uk/images/sinatra.png" title="Sinatra" alt="Sinatra"></p>
+
+<h2>Refactoring</h2>
+
+<p>OK, so it&#8217;s not setting the world alight but it&#8217;s quite cool having a web application in a single file with only 21 lines including routing and view templates.  The single file approach is good for minimalist applications but I prefer to have my code organised so I&#8217;m going to do some refactoring.  I&#8217;m going to move the layout and index templates into their own files in a separate folder.  By default, <a href="http://www.sinatrarb.com/">Sinatra</a> expects views to live in <code>./views</code> so I&#8217;m going to stick with that.  You can override the views folder using the <code>set :views, '/path/to/my/views/folder'</code> declaration.</p>
+
+<p>So, my <code>myapp.rb</code> script now looks like this:</p>
+
+<figure class='code'><figcaption><span>myapp.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;haml&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@client_ip</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">ip</span>
+</span><span class='line'>  <span class="n">haml</span> <span class="ss">:index</span><span class="p">,</span> <span class="ss">:format</span> <span class="o">=&gt;</span> <span class="ss">:html5</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and my folder structure looks like this:</p>
+
+<pre><code>.
+├── my_app.rb
+└── views
+    ├── index.haml
+    └── layout.haml
+</code></pre>
+
+<figure class='code'><figcaption><span>layout.haml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='haml'><span class='line'><span class="nn">!!!</span>
+</span><span class='line'><span class="nt">%html</span>
+</span><span class='line'>  <span class="nt">%head</span>
+</span><span class='line'>    <span class="nt">%title</span>
+</span><span class='line'>  <span class="nt">%body</span>
+</span><span class='line'>    <span class="p">=</span> <span class="k">yield</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span>index.haml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='haml'><span class='line'><span class="nt">%h1</span> Hello
+</span><span class='line'><span class="nt">%p</span><span class="p">=</span> <span class="s2">&quot;Client IP:</span><span class="si">#{</span><span class="vi">@client_ip</span><span class="si">}</span><span class="s2">&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Mounting a Sinatra App in a Rails Application</h2>
+
+<p>So, now I&#8217;ve got my nice little <a href="http://www.sinatrarb.com/">Sinatra</a> application that will inform users of their client IP address.  I think that this would be a useful application to reuse in a full blown rails application so how do I go about mounting it from Rails?</p>
+
+<h3>Wrapping it up as a Gem</h3>
+
+<p>Firstly, I want to package it up neatly as a Ruby Gem.  This is fairly straightforward.  All I need to do is put my code in a folder called <code>lib</code>, create a <code>my_app.gemspec</code> file and then drop the <code>my_app.gemspec</code> file and the <code>lib</code> directory into a directory called <code>my_app</code>.  My gemspec file looks like this:</p>
+
+<figure class='code'><figcaption><span>my_app.gemspec</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Gem</span><span class="o">::</span><span class="no">Specification</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">s</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="sx">%q{my_app}</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;1.0.0&quot;</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="sx">%q{2012-02-20}</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">summary</span> <span class="o">=</span> <span class="sx">%q{testing}</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">files</span> <span class="o">=</span> <span class="o">[</span>
+</span><span class='line'>    <span class="s2">&quot;lib/my_app.rb&quot;</span>
+</span><span class='line'>  <span class="o">]</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">require_paths</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;lib&quot;</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The folder structure of my &#8216;my_app&#8217; gem looks like this:</p>
+
+<pre><code>./my_app
+├── lib
+│   ├── my_app.rb
+│   └── views
+│       ├── index.haml
+│       └── layout.haml
+└── my_app.gemspec
+</code></pre>
+
+<p>We need to make one change to the <code>my_app.rb</code> file to allow Rails to recognise it as a class inheriting from Sinatra::Base.  So I wrap the code in a class declaration as follows:</p>
+
+<figure class='code'><figcaption><span>my_app.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">MyApp</span> <span class="o">&lt;</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
+</span><span class='line'>  <span class="nb">require</span> <span class="s1">&#39;haml&#39;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="vi">@client_ip</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">ip</span>
+</span><span class='line'>    <span class="n">haml</span> <span class="ss">:index</span><span class="p">,</span> <span class="ss">:format</span> <span class="o">=&gt;</span> <span class="ss">:html5</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Mounting the Sinatra Application from Rails</h3>
+
+<p>I&#8217;m going to mount my gem locally under the lib directory of my Rails application. So I drop the <code>my_app</code> folder into the lib directory of my Rails application  I now need to modify the Gemfile of my Rails application to load the <a href="http://www.sinatrarb.com/">Sinatra</a> gem, <code>my_app</code> and also ensure that any gems required by the app are also loaded so I add the following lines:</p>
+
+<figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;sinatra&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;haml&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;thin&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;my_app&#39;</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">&#39;lib/my_app&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After editing the <code>Gemfile</code> you then need to run <code>bundle update</code> to install the new gems.</p>
+
+<p>Finally, I need to add a route to <code>routes.rb</code> to mount <code>MyApp</code> under the <code>clientip</code> path so that users browsing to <code>http://localhost:3000/clientip</code> will see the information served up by the Sinatra application.  This is accomplished by adding the following line:</p>
+
+<figure class='code'><figcaption><span>routes.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">mount</span> <span class="no">MyApp</span> <span class="o">=&gt;</span> <span class="s2">&quot;/clientip&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, when I fire up my Rails application and browse to <code>http:.//localhost:3000/clientip</code>, I get a response from the Sinatra application:</p>
+
+<p><img src="http://www.interoperate.co.uk/images/sinatra2.png" title="Sinatra" alt="Sinatra"></p>
+
+<h2>Conclusion</h2>
+
+<p><a href="http://www.sinatrarb.com/">Sinatra</a> takes a blank canvas approach i.e. you start with nothing and you add what you need.  Conversely, when you create a new Rails application, you get a hell of a lot out of the box and as long as you stick with the Rails conventions, you can save yourself a lot of custom coding.  I like the minimalist aspect of <a href="http://www.sinatrarb.com/">Sinatra</a> and its simplicity but feel that I would soon find myself missing some of the built-in functionality of Rails.  I&#8217;m pretty sure it would be possible to develop some very elegant web applications with very few lines of code.  I don&#8217;t see it as an alternative to Rails but rather as complimentary for discrete functional modules.  It would certainly be very useful for knocking up quick prototypes or proof of solution activities.</p>
+
+<p>For some examples of Sinatra in the wild, visit <a href="http://www.sinatrarb.com/wild.html">http://www.sinatrarb.com/wild.html</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Using OpenLayers with Rails]]></title>

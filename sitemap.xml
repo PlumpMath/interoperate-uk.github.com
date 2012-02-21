@@ -17,6 +17,10 @@
         <lastmod>2012-02-16T11:53:36+00:00</lastmod>
     </url>
     <url>
+        <loc>http://www.interoperate.co.uk/blog/2012/02/20/sinatra-on-rails/</loc>
+        <lastmod>2012-02-21T11:15:14+00:00</lastmod>
+    </url>
+    <url>
         <loc>http://www.interoperate.co.uk/about/</loc>
         <lastmod>2012-02-16T11:03:53+00:00</lastmod>
     </url>
@@ -26,7 +30,7 @@
     </url>
     <url>
         <loc>http://www.interoperate.co.uk/blog/archives/</loc>
-        <lastmod>2012-02-16T12:45:40+00:00</lastmod>
+        <lastmod>2012-02-21T11:15:14+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.interoperate.co.uk/contact/</loc>
@@ -38,6 +42,6 @@
     </url>
     <url>
         <loc>http://www.interoperate.co.uk/</loc>
-        <lastmod>2012-02-16T12:45:40+00:00</lastmod>
+        <lastmod>2012-02-21T11:15:14+00:00</lastmod>
     </url>
 </urlset>

@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Sinatra on Rails - Interoperate</title>
+  <meta name="author" content="Jon Wade">
+
+  
+  <meta name="description" content="I&#8217;m always interested in approaches to modular and minimalist coding. I&#8217;ve read a few articles about using Sinatra as a DSL for writing &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.interoperate.co.uk/blog/2012/02/20/sinatra-on-rails">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+  <script src="/javascripts/modernizr-2.0.js"  type="text/javascript"></script>
+  <script src="/javascripts/ender.js" type="text/javascript"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  <link href="/atom.xml" rel="alternate" title="Interoperate" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<!-- <link href="http://fonts.googleapis.com/css?family=Lato:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,italic,extrabold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-28372527-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><div id="header_left">
+    <div id="logo">
+      <a href="/"><img style='vertical-align:middle' src='/images/interoperate_icon_white.png'></a>
+    </div>
+    <div id="title">
+      <h1 style='vertical-align:middle'><a href="/">Interoperate</a></h1>
+  </div>
+  
+  
+   <div id="strapline"><h2>Musings of an IT Freelancer</h2></div>
+  
+</div>
+
+<div id="header_right">
+  <span>
+  <a href="http://www.facebook.com/pages/Interoperate/344511882244934"><img style='vertical-align:middle' src='/images/facebook-32.png'></a>
+  <a href="https://twitter.com/#!/Interoper8"><img style='vertical-align:middle' src='/images/twitter-32.png'></a>
+  <a href="http://www.linkedin.com/in/jonwade"><img style='vertical-align:middle' src='/images/linkedin-32.png'></a>
+  <a href="https://plus.google.com/109744129508056468090"><img style='vertical-align:middle' src='/images/googleplus-32.png'></a>
+  </span>
+</div>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.interoperate.co.uk" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/contact">Contact</a></li>
+  <li><a href="/geek">Geek Version</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Sinatra on Rails</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-20T21:16:00+00:00" pubdate data-updated="true">Feb 20<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I&#8217;m always interested in approaches to modular and minimalist coding.  I&#8217;ve read a few articles about using <a href="http://www.sinatrarb.com/">Sinatra</a> as a DSL for writing &#8216;micro apps&#8217; and can see that it could be useful for writing lightweight applications and APIs and reusing code.  I was also interested from a re-use perspective in how a <a href="http://www.sinatrarb.com/">Sinatra</a> &#8216;micro app&#8217; could be embedded in a &#8216;parent&#8217; Rails application.  Turns out it&#8217;s pretty clean and straightforward.</p>
+
+<!-- More -->
+
+
+<h2>Creating a Basic Sinatra Application</h2>
+
+<p>First install the Sinatra gem.</p>
+
+<pre><code>gem install sinatra
+gem install thin
+gem install haml 
+</code></pre>
+
+<p>I&#8217;ve included a few optional extras here. By default, <a href="http://www.sinatrarb.com/">Sinatra</a> will use WEBrick for the application server but <a href="http://code.macournoyer.com/thin/">Thin</a> will be used if it is installed.  Also, I much prefer using <a href="http://haml-lang.com/">HAML</a> (Yippeee!) markup over <a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/erb/rdoc/ERB.html">ERB</a> (Ugh, yuk *!&amp;%<sup>+!)</sup> for my view templates.  For my first trivial application I&#8217;m going to show a welcome message and tell the client their IP address (obtained from the &#8216;request&#8217; parameter).</p>
+
+<figure class='code'><figcaption><span>myapp.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;haml&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@client_ip</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">ip</span>
+</span><span class='line'>  <span class="n">haml</span> <span class="ss">:index</span><span class="p">,</span> <span class="ss">:format</span> <span class="o">=&gt;</span> <span class="ss">:html5</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">__END__</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">@@layout</span>
+</span><span class='line'><span class="cp">!!!</span>
+</span><span class='line'><span class="cp">%html</span>
+</span><span class='line'><span class="cp">  %head</span>
+</span><span class='line'><span class="cp">    %title</span>
+</span><span class='line'><span class="cp">  %body</span>
+</span><span class='line'><span class="cp">    = yield</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">@@index</span>
+</span><span class='line'><span class="cp">%h1 Hello From Sinatra</span>
+</span><span class='line'><span class="cp">%p= &quot;Your IP address is: #{@client_ip}&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That&#8217;s it!  Note that this is the &#8216;inline&#8217; flavour of a Sinatra application.  The view templates are embedded at the end of the ruby source file after the <code>__END__</code> keyword.  The view concept should be familiar to anyone used to Rails.  <a href="http://www.sinatrarb.com/">Sinatra</a> expects a layout called &#8216;layout&#8217; and will use that to embed views using the &#8216;yield&#8217; keyword.  Routing is declared in the <code>get '/' do</code> code block.  Equally you could use &#8216;post&#8217;, &#8216;put&#8217; etc. depending on the preferred HTTP verb and the path.  This application will print a simple message to the screen and notify the user of their client IP address.  To fire up the application, I just type:</p>
+
+<pre><code>$ ruby myapp.rb
+== Sinatra/1.3.2 has taken the stage on 4567 for development with backup from Thin
+&gt;&gt; Thin web server (v1.3.1 codename Triple Espresso)
+&gt;&gt; Maximum connections set to 1024
+&gt;&gt; Listening on 0.0.0.0:4567, CTRL+C to stop**
+</code></pre>
+
+<p>Pointing my browser at http://localhost:4567 now shows:</p>
+
+<p><img src="/images/sinatra.png" title="Sinatra" alt="Sinatra"></p>
+
+<h2>Refactoring</h2>
+
+<p>OK, so it&#8217;s not setting the world alight but it&#8217;s quite cool having a web application in a single file with only 21 lines including routing and view templates.  The single file approach is good for minimalist applications but I prefer to have my code organised so I&#8217;m going to do some refactoring.  I&#8217;m going to move the layout and index templates into their own files in a separate folder.  By default, <a href="http://www.sinatrarb.com/">Sinatra</a> expects views to live in <code>./views</code> so I&#8217;m going to stick with that.  You can override the views folder using the <code>set :views, '/path/to/my/views/folder'</code> declaration.</p>
+
+<p>So, my <code>myapp.rb</code> script now looks like this:</p>
+
+<figure class='code'><figcaption><span>myapp.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;haml&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@client_ip</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">ip</span>
+</span><span class='line'>  <span class="n">haml</span> <span class="ss">:index</span><span class="p">,</span> <span class="ss">:format</span> <span class="o">=&gt;</span> <span class="ss">:html5</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and my folder structure looks like this:</p>
+
+<pre><code>.
+├── my_app.rb
+└── views
+    ├── index.haml
+    └── layout.haml
+</code></pre>
+
+<figure class='code'><figcaption><span>layout.haml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='haml'><span class='line'><span class="nn">!!!</span>
+</span><span class='line'><span class="nt">%html</span>
+</span><span class='line'>  <span class="nt">%head</span>
+</span><span class='line'>    <span class="nt">%title</span>
+</span><span class='line'>  <span class="nt">%body</span>
+</span><span class='line'>    <span class="p">=</span> <span class="k">yield</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span>index.haml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='haml'><span class='line'><span class="nt">%h1</span> Hello
+</span><span class='line'><span class="nt">%p</span><span class="p">=</span> <span class="s2">&quot;Client IP:</span><span class="si">#{</span><span class="vi">@client_ip</span><span class="si">}</span><span class="s2">&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Mounting a Sinatra App in a Rails Application</h2>
+
+<p>So, now I&#8217;ve got my nice little <a href="http://www.sinatrarb.com/">Sinatra</a> application that will inform users of their client IP address.  I think that this would be a useful application to reuse in a full blown rails application so how do I go about mounting it from Rails?</p>
+
+<h3>Wrapping it up as a Gem</h3>
+
+<p>Firstly, I want to package it up neatly as a Ruby Gem.  This is fairly straightforward.  All I need to do is put my code in a folder called <code>lib</code>, create a <code>my_app.gemspec</code> file and then drop the <code>my_app.gemspec</code> file and the <code>lib</code> directory into a directory called <code>my_app</code>.  My gemspec file looks like this:</p>
+
+<figure class='code'><figcaption><span>my_app.gemspec</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Gem</span><span class="o">::</span><span class="no">Specification</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">s</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="sx">%q{my_app}</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;1.0.0&quot;</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="sx">%q{2012-02-20}</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">summary</span> <span class="o">=</span> <span class="sx">%q{testing}</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">files</span> <span class="o">=</span> <span class="o">[</span>
+</span><span class='line'>    <span class="s2">&quot;lib/my_app.rb&quot;</span>
+</span><span class='line'>  <span class="o">]</span>
+</span><span class='line'>  <span class="n">s</span><span class="o">.</span><span class="n">require_paths</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;lib&quot;</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The folder structure of my &#8216;my_app&#8217; gem looks like this:</p>
+
+<pre><code>./my_app
+├── lib
+│   ├── my_app.rb
+│   └── views
+│       ├── index.haml
+│       └── layout.haml
+└── my_app.gemspec
+</code></pre>
+
+<p>We need to make one change to the <code>my_app.rb</code> file to allow Rails to recognise it as a class inheriting from Sinatra::Base.  So I wrap the code in a class declaration as follows:</p>
+
+<figure class='code'><figcaption><span>my_app.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">MyApp</span> <span class="o">&lt;</span> <span class="no">Sinatra</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
+</span><span class='line'>  <span class="nb">require</span> <span class="s1">&#39;haml&#39;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="vi">@client_ip</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">ip</span>
+</span><span class='line'>    <span class="n">haml</span> <span class="ss">:index</span><span class="p">,</span> <span class="ss">:format</span> <span class="o">=&gt;</span> <span class="ss">:html5</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Mounting the Sinatra Application from Rails</h3>
+
+<p>I&#8217;m going to mount my gem locally under the lib directory of my Rails application. So I drop the <code>my_app</code> folder into the lib directory of my Rails application  I now need to modify the Gemfile of my Rails application to load the <a href="http://www.sinatrarb.com/">Sinatra</a> gem, <code>my_app</code> and also ensure that any gems required by the app are also loaded so I add the following lines:</p>
+
+<figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;sinatra&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;haml&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;thin&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;my_app&#39;</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">&#39;lib/my_app&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After editing the <code>Gemfile</code> you then need to run <code>bundle update</code> to install the new gems.</p>
+
+<p>Finally, I need to add a route to <code>routes.rb</code> to mount <code>MyApp</code> under the <code>clientip</code> path so that users browsing to <code>http://localhost:3000/clientip</code> will see the information served up by the Sinatra application.  This is accomplished by adding the following line:</p>
+
+<figure class='code'><figcaption><span>routes.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">mount</span> <span class="no">MyApp</span> <span class="o">=&gt;</span> <span class="s2">&quot;/clientip&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, when I fire up my Rails application and browse to <code>http:.//localhost:3000/clientip</code>, I get a response from the Sinatra application:</p>
+
+<p><img src="/images/sinatra2.png" title="Sinatra" alt="Sinatra"></p>
+
+<h2>Conclusion</h2>
+
+<p><a href="http://www.sinatrarb.com/">Sinatra</a> takes a blank canvas approach i.e. you start with nothing and you add what you need.  Conversely, when you create a new Rails application, you get a hell of a lot out of the box and as long as you stick with the Rails conventions, you can save yourself a lot of custom coding.  I like the minimalist aspect of <a href="http://www.sinatrarb.com/">Sinatra</a> and its simplicity but feel that I would soon find myself missing some of the built-in functionality of Rails.  I&#8217;m pretty sure it would be possible to develop some very elegant web applications with very few lines of code.  I don&#8217;t see it as an alternative to Rails but rather as complimentary for discrete functional modules.  It would certainly be very useful for knocking up quick prototypes or proof of solution activities.</p>
+
+<p>For some examples of Sinatra in the wild, visit <a href="http://www.sinatrarb.com/wild.html">http://www.sinatrarb.com/wild.html</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jon Wade</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-20T21:16:00+00:00" pubdate data-updated="true">Feb 20<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/haml/'>HAML</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/sinatra/'>Sinatra</a>, <a class='category' href='/blog/categories/thin/'>Thin</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.interoperate.co.uk/blog/2012/02/20/sinatra-on-rails/" data-via="interoper8" data-counturl="http://www.interoperate.co.uk/blog/2012/02/20/sinatra-on-rails/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/02/07/using-openlayers-with-rails/" title="Previous Post: Using OpenLayers with Rails">&laquo; Using OpenLayers with Rails</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/02/20/sinatra-on-rails/">Sinatra on Rails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/02/07/using-openlayers-with-rails/">Using OpenLayers with Rails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/01/17/no-fuss-accounting-with-xero/">No Fuss Accounting with Xero</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/01/15/which-ruby-blog-engine/">Which Ruby Blog Engine?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/01/15/ruby-roman-numeral-method/">Ruby Roman Numeral Method</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("interoper8", 8, true);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/interoper8" class="twitter-follow-button" data-show-count="false">Follow @interoper8</a>
+  
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Interoperate Ltd. -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+<p>
+  Interoperate Ltd. - Registered in England &amp; Wales. Company Number: 06692068 -
+  VAT Registered: GB939564573
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'interoperate';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.interoperate.co.uk/blog/2012/02/20/sinatra-on-rails/';
+        var disqus_url = 'http://www.interoperate.co.uk/blog/2012/02/20/sinatra-on-rails/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
