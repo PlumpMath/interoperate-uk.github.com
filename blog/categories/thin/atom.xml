@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Thin | Interoperate]]></title>
   <link href="http://www.interoperate.co.uk/blog/categories/thin/atom.xml" rel="self"/>
   <link href="http://www.interoperate.co.uk/"/>
-  <updated>2012-02-21T11:19:24+00:00</updated>
+  <updated>2012-02-21T11:37:10+00:00</updated>
   <id>http://www.interoperate.co.uk/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -114,7 +114,7 @@ end
 
 <p><code>
 </code> haml index.haml
-%h1 Hello
+%h1 Hello From Sinatra
 %p= "Client IP:#{@client_ip}"
 ```</p>
 
