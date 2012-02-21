@@ -87,7 +87,7 @@ and my folder structure looks like this:
     = yield
 ```
 ``` haml index.haml
-%h1 Hello
+%h1 Hello From Sinatra
 %p= "Client IP:#{@client_ip}"
 ```
 
