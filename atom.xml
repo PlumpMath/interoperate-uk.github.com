@@ -4,7 +4,7 @@
   <title><![CDATA[Interoperate]]></title>
   <link href="http://www.interoperate.co.uk/atom.xml" rel="self"/>
   <link href="http://www.interoperate.co.uk/"/>
-  <updated>2012-02-21T12:19:51+00:00</updated>
+  <updated>2012-02-21T12:21:59+00:00</updated>
   <id>http://www.interoperate.co.uk/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -79,9 +79,9 @@ gem install haml
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>That&#8217;s it!  Note that this is the &#8216;inline&#8217; flavour of a Sinatra application.  The view templates are embedded at the end of the ruby source file after the <code>__END__</code> keyword.  The view concept should be familiar to anyone used to Rails.  <a href="http://www.sinatrarb.com/">Sinatra</a> expects a layout called &#8216;layout&#8217; and will use that to embed views using the &#8216;yield&#8217; keyword.  Routing is declared in the <code>get '/' do</code> code block.  Equally you could use &#8216;post&#8217;, &#8216;put&#8217; etc. depending on the preferred HTTP verb and the path.  This application will print a simple message to the screen and notify the user of their client IP address.  To fire up the application, I just type:</p>
+<p>That&#8217;s it!  Note that this is the &#8216;inline&#8217; flavour of a Sinatra application.  The view templates are embedded at the end of the ruby source file after the <code>__END__</code> keyword.  The view concept should be familiar to anyone used to Rails.  <a href="http://www.sinatrarb.com/">Sinatra</a> expects a layout called &#8216;layout&#8217; and will use that to embed views using the &#8216;yield&#8217; keyword.  Routing is declared in the <code>get '/' do</code> code block.  Equally you could use &#8216;post&#8217;, &#8216;put&#8217; etc. depending on the preferred HTTP verb and the path.  This application will print a simple message to the screen and notify the user of their client IP address.  To fire up the application, I just type <code>ruby my_app.rb</code> as follows:</p>
 
-<pre><code>$ ruby myapp.rb
+<pre><code>$ ruby my_app.rb
 == Sinatra/1.3.2 has taken the stage on 4567 for development with backup from Thin
 &gt;&gt; Thin web server (v1.3.1 codename Triple Espresso)
 &gt;&gt; Maximum connections set to 1024
@@ -96,9 +96,9 @@ gem install haml
 
 <p>OK, so it&#8217;s not setting the world alight but it&#8217;s quite cool having a web application in a single file with only 21 lines including routing and view templates.  The single file approach is good for minimalist applications but I prefer to have my code organised so I&#8217;m going to do some refactoring.  I&#8217;m going to move the layout and index templates into their own files in a separate folder.  By default, <a href="http://www.sinatrarb.com/">Sinatra</a> expects views to live in <code>./views</code> so I&#8217;m going to stick with that.  You can override the views folder using the <code>set :views, '/path/to/my/views/folder'</code> declaration.</p>
 
-<p>So, my <code>myapp.rb</code> script now looks like this:</p>
+<p>So, my <code>my_app.rb</code> script now looks like this:</p>
 
-<figure class='code'><figcaption><span>myapp.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>my_app.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
