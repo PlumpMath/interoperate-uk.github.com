@@ -88,7 +88,7 @@ and my folder structure looks like this:
 ```
 ``` haml index.haml
 %h1 Hello From Sinatra
-%p= "Client IP:#{@client_ip}"
+%p= "Your IP address is:#{@client_ip}"
 ```
 
 ## Mounting a Sinatra App in a Rails Application
