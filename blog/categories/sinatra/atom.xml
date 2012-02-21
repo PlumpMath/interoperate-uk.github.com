@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sinatra | Interoperate]]></title>
   <link href="http://www.interoperate.co.uk/blog/categories/sinatra/atom.xml" rel="self"/>
   <link href="http://www.interoperate.co.uk/"/>
-  <updated>2012-02-21T11:37:10+00:00</updated>
+  <updated>2012-02-21T11:38:06+00:00</updated>
   <id>http://www.interoperate.co.uk/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -115,7 +115,7 @@ end
 <p><code>
 </code> haml index.haml
 %h1 Hello From Sinatra
-%p= "Client IP:#{@client_ip}"
+%p= "Your IP address is:#{@client_ip}"
 ```</p>
 
 <h2>Mounting a Sinatra App in a Rails Application</h2>
