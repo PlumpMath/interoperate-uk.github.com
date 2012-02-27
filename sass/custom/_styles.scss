@@ -1,2 +1,44 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
+#header_left {
+  float: left;
+}
+
+#logo {
+  width: 70px;
+  float:left;
+}
+
+#title {
+  text-align: left;
+  float:right;
+}
+
+#strapline {
+  clear:both;
+  text-align: center;
+}
+
+#strapline h2 {
+  font-weight: normal;
+}
+
+#header_right {
+  float: right;
+}
+
+#geek {
+  border: none;
+  color: #0f0;
+  background: #000;
+}
+#geek pre{
+  color: #0f0;
+  background: #000;
+  border:none;
+  font-size: 1.2em;
+}
+#cursor {
+  background-color: #0f0;
+}
+
