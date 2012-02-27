@@ -4,7 +4,7 @@
   <title><![CDATA[Interoperate]]></title>
   <link href="http://www.interoperate.co.uk/atom.xml" rel="self"/>
   <link href="http://www.interoperate.co.uk/"/>
-  <updated>2012-02-27T10:41:34+00:00</updated>
+  <updated>2012-02-27T11:14:19+00:00</updated>
   <id>http://www.interoperate.co.uk/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -597,7 +597,7 @@ gem install haml
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>I&#8217;ve included screenshots below.  Note how the map has been centered on the geometry of the linestring and a sensible zoom level has been set.</p>
+<p>I&#8217;ve included screenshots below.  Note how the map has been centered on the geometry of the linestring and a sensible zoom level has been set.  You can find a live demo on my <a href="http://sandbox.interoperate.co.uk/openlayers">Sandbox</a> site.</p>
 
 <p><img src="http://www.interoperate.co.uk/images/openstreetmap.jpg" title="OpenStreetMap" alt="OpenStreetMap">
 <img src="http://www.interoperate.co.uk/images/google_roads.jpg" title="Google Maps (ROAD)" alt="Google Maps Road">
