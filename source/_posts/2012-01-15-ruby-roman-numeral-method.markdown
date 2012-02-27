@@ -6,8 +6,11 @@ comments: true
 sharing: true
 categories:
 - Ruby
+- Solarized
+- Iterm2
+- Vim
 ---
-Just gone live with this blog and I must say that I'm pretty impressed with [Octopress](http://octopress.org/).  It only took me a few minutes to get it setup and hosted on [GitHub](http://www.github.com/) thanks to the excellent documentation.  For my first post I thought I'd check out the code highlighting with a simple Ruby function to extend the core Fixnum class to allow an integer to be converted to Roman numerals.
+Just gone live with this blog and I must say that I'm pretty impressed with [Octopress](http://octopress.org/).  It only took me a few minutes to get it setup and hosted on [GitHub](http://www.github.com/) thanks to the excellent documentation.  For my first post I thought I'd check out the syntax highlighting with a simple Ruby function to extend the core Fixnum class to allow an integer to be converted to Roman numerals.  This syntax highlighting is using the [Solarized](http://ethanschoonover.com/solarized) colour palette which has been meticulously designed to allow optimum crispness and legibility on both light and dark backgrounds.  I also use the same colour palette when using [Iterm2](http://www.iterm2.com/#/section/home) and [Vim](http://www.vim.org/).
 
 <!-- more -->
 
