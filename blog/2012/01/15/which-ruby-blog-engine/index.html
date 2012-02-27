@@ -32,6 +32,7 @@
 <!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
 <!-- <link href="http://fonts.googleapis.com/css?family=Lato:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,italic,extrabold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet" type="text/css">
 
   
   <script type="text/javascript">
@@ -52,11 +53,11 @@
 <body   >
   <header role="banner"><div id="header_left">
     <div id="logo">
-      <a href="/"><img style='vertical-align:middle' src='/images/interoperate_icon_white.png'></a>
+      <a href="/"><img style='vertical-align:middle' src='/images/interoperate-logo.png'></a>
     </div>
-    <div id="title">
-      <h1 style='vertical-align:middle'><a href="/">Interoperate</a></h1>
-  </div>
+    <!-- <div id="title">
+          <h1 style='vertical-align:middle'><a href="/">Interoperate</a></h1>
+        </div> -->
   
   
    <div id="strapline"><h2>Musings of an IT Freelancer</h2></div>
@@ -87,6 +88,7 @@
   
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
+  <li><a href="http://sandbox.interoperate.co.uk">Sandbox</a></li>
   <li><a href="/blog/archives">Archives</a></li>
   <li><a href="/about">About</a></li>
   <li><a href="/contact">Contact</a></li>
@@ -126,7 +128,12 @@
   </header>
 
 
-<div class="entry-content"><p>So, here I am at the start of 2012 with a bit of time on my hands being &#8216;between contracts&#8217; so I thought I&#8217;d spend a bit of time updating my own website.  After a little thought, I came to the conclusion that all I really need is a blog site for me to record anything that I find remotely interesting and worth sharing.  So, with that in mind, I set about finding a solution for a blogging engine.  My key requirements were the usual sort of thing:</p>
+<div class="entry-content"><p>So, here I am at the start of 2012 with a bit of time on my hands being &#8216;between contracts&#8217; so I thought I&#8217;d spend a bit of time updating my own website.  After a little thought, I came to the conclusion that all I really need is a blog site for me to record anything that I find remotely interesting and worth sharing.  So, with that in mind, I set about finding a solution for a blogging engine.</p>
+
+<!-- more -->
+
+
+<p>My key requirements were the usual sort of thing:</p>
 
 <ul>
 <li>Written in Ruby</li>
@@ -135,9 +142,6 @@
 <li>Lightweight</li>
 <li>Code highlighting support</li>
 </ul>
-
-
-<!-- more -->
 
 
 <p>My initial approach was to try and find something that I could plug in to a Rails 3.1 application as an engine and update through a browser.  However, I generally have an aversion to Content Management Systems and didn&#8217;t want anything too heavy.  I much prefer editing raw text files and don&#8217;t like WYSIWYG editors.  After some pondering, I ended up at the excellent <a href="https://www.ruby-toolbox.com/">Ruby Toolbox</a> website which led me to <a href="http://octopress.org">Octopress</a> and so far I haven&#8217;t been disappointed.  I took the decision to deploy it (for free) at Github Pages and so far the experience has been entirely pleasurable.  <a href="http://octopress.org">Octopress</a> is based on the <a href="https://github.com/mojombo/jekyll">Jekyll</a> static site generator that is used by Github pages.  I can&#8217;t believe that I was actually considering writing my own blog engine as a mountable Rails 3.1 engine.  I was up and running within 30 minutes and most of that time was spent deciding which fonts and colour scheme to use.  Updating the website is as simple as committing to Git so if you&#8217;re comfortable with that then you will find it a walk in the park.  As the author acknowledges:</p>
