@@ -194,7 +194,7 @@ function initializeMap() {
 }
 ```
 
-I've included screenshots below.  Note how the map has been centered on the geometry of the linestring and a sensible zoom level has been set.
+I've included screenshots below.  Note how the map has been centered on the geometry of the linestring and a sensible zoom level has been set.  You can find a live demo on my [Sandbox](http://sandbox.interoperate.co.uk/openlayers) site.
 
 {% img /images/openstreetmap.jpg "OpenStreetMap" "OpenStreetMap" %}
 {% img /images/google_roads.jpg "Google Maps (ROAD)" "Google Maps Road" %}
