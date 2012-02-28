@@ -1,0 +1,54 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/opt/local/bin/npm', 'install', '-g', 'tilestream' ]
+info using npm@1.1.2
+info using node@v0.6.11
+verbose config file /Users/jon/.npmrc
+verbose config file /opt/local/etc/npmrc
+verbose config file /opt/local/lib/node_modules/npm/npmrc
+verbose cache add [ 'tilestream', null ]
+silly cache add: name, spec, args [ undefined, 'tilestream', [ 'tilestream', null ] ]
+verbose parsed url { pathname: 'tilestream',
+verbose parsed url   path: 'tilestream',
+verbose parsed url   href: 'tilestream' }
+verbose addNamed [ 'tilestream', '' ]
+verbose addNamed [ null, '' ]
+silly name, range, hasData [ 'tilestream', '', false ]
+verbose raw, before any munging tilestream
+verbose url resolving [ 'https://registry.npmjs.org/', './tilestream' ]
+verbose url resolved https://registry.npmjs.org/tilestream
+http GET https://registry.npmjs.org/tilestream
+http 200 https://registry.npmjs.org/tilestream
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"5IVNKN53HRBOVO79HHJKC081X"',
+silly get cb     date: 'Mon, 27 Feb 2012 23:12:59 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '34889' } ]
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/jon/.npm/tilestream'
+verbose mkdir done: /Users/jon/.npm/tilestream 755
+silly name, range, hasData 2 [ 'tilestream', '', true ]
+silly versions [ 'tilestream', [] ]
+ERR! Error: No compatible version found: tilestream
+ERR! No valid targets found.
+ERR! Perhaps not compatible with your version of node?
+ERR!     at installTargetsError (/opt/local/lib/node_modules/npm/lib/cache.js:488:10)
+ERR!     at next_ (/opt/local/lib/node_modules/npm/lib/cache.js:438:17)
+ERR!     at next (/opt/local/lib/node_modules/npm/lib/cache.js:415:44)
+ERR!     at /opt/local/lib/node_modules/npm/lib/cache.js:408:5
+ERR!     at saved (/opt/local/lib/node_modules/npm/lib/utils/npm-registry-client/get.js:147:7)
+ERR!     at Object.oncomplete (/opt/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:231:7)
+ERR! You may report this log at:
+ERR!     <http://github.com/isaacs/npm/issues>
+ERR! or email it to:
+ERR!     <npm-@googlegroups.com>
+ERR! 
+ERR! System Darwin 10.8.0
+ERR! command "node" "/opt/local/bin/npm" "install" "-g" "tilestream"
+ERR! cwd /Users/jon/Dropbox/wip/interoperate
+ERR! node -v v0.6.11
+ERR! npm -v 1.1.2
+ERR! message No compatible version found: tilestream
+ERR! message No valid targets found.
+ERR! message Perhaps not compatible with your version of node?
+verbose exit [ 1, true ]
