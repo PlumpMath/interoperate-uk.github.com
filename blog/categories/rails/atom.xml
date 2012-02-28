@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | Interoperate]]></title>
   <link href="http://www.interoperate.co.uk/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://www.interoperate.co.uk/"/>
-  <updated>2012-02-27T22:25:36+00:00</updated>
+  <updated>2012-02-28T10:52:52+00:00</updated>
   <id>http://www.interoperate.co.uk/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -424,7 +424,7 @@ if(features) {
 }
 ```</p>
 
-<p>I've included screenshots below.  Note how the map has been centered on the geometry of the linestring and a sensible zoom level has been set.  You can find a live demo on my <a href="http://sandbox.interoperate.co.uk/gis">Sandbox</a> site.</p>
+<p>I've included screenshots below.  Note how the map has been centered on the geometry of the linestring and a sensible zoom level has been set.  You can find a live demo on my <a href="http://sandbox.interoperate.co.uk/openlayers">Sandbox</a> site.</p>
 
 <p><img src="/images/openstreetmap.jpg" title="OpenStreetMap" alt="OpenStreetMap">
 <img src="/images/google_roads.jpg" title="Google Maps (ROAD)" alt="Google Maps Road">
