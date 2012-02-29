@@ -80,6 +80,7 @@ Pointing my browser at http://localhost:3000/trips/1.json will now serve up the 
   type: "FeatureCollection",
   features: [
     {
+      type: "Feature",
       geometry: {
         type: "GeometryCollection",
         geometries: [
@@ -91,7 +92,7 @@ Pointing my browser at http://localhost:3000/trips/1.json will now serve up the 
               [ -1.425713, 53.858373 ],
               [ -1.425712, 53.858373 ],
               [ -1.425712, 53.858372 ],
-              [ ... ]
+              [ ..more.. ]
             ]
           }
         ]
