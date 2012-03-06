@@ -44,6 +44,7 @@ class Trip < ActiveRecord::Base
     # return a GeoJSON 'FeatureCollection' 
     { :type => "FeatureCollection",
       :features => [
+        :type: "Feature",
         :geometry => {
           :type => "GeometryCollection",
           :geometries => [
