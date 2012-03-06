@@ -185,6 +185,7 @@
 <span class='line-number'>24</span>
 <span class='line-number'>25</span>
 <span class='line-number'>26</span>
+<span class='line-number'>27</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Trip</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="k">def</span> <span class="nf">geojson</span>
@@ -200,6 +201,7 @@
 </span><span class='line'>    <span class="c1"># return a GeoJSON &#39;FeatureCollection&#39; </span>
 </span><span class='line'>    <span class="p">{</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">&quot;FeatureCollection&quot;</span><span class="p">,</span>
 </span><span class='line'>      <span class="ss">:features</span> <span class="o">=&gt;</span> <span class="o">[</span>
+</span><span class='line'>        <span class="ss">:type</span><span class="p">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
 </span><span class='line'>        <span class="ss">:geometry</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span><span class='line'>          <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">&quot;GeometryCollection&quot;</span><span class="p">,</span>
 </span><span class='line'>          <span class="ss">:geometries</span> <span class="o">=&gt;</span> <span class="o">[</span>
