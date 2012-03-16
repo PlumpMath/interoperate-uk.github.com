@@ -2,7 +2,7 @@
 // To give it a try, uncomment some of the lines below rebuild your blog, and see how it works.
 // If you need a handy color picker try http://hslpicker.com
 
-$page-bg: #444 !default;
+$page-bg: #000 !default;
 
 //$header-bg: #263347;
 $header-bg: #fff;
@@ -18,7 +18,7 @@ $nav-color: #fff !default;
 //$nav-color-hover: darken($nav-color, 25) !default;
 $nav-color-hover: #000 !default;
 $nav-placeholder: desaturate(darken($nav-bg, 10), 15) !default;
-$nav-border-top: #fff;
+$nav-border-top: #c00;
 $nav-border-bottom: $nav-bg;
 $nav-border-left: darken($nav-bg, 11) !default;
 $nav-border-right: lighten($nav-bg, 7) !default;
