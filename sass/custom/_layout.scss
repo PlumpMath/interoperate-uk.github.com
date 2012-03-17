@@ -21,32 +21,43 @@ $header-padding-bottom: 0em;
 //$sidebar-width-wide: 300px;
 
 header[role="banner"] {
-   background-image: url(/images/backgrounds/jigsaw-bg.jpg);
+   background-image: url(/images/backgrounds/i8-bg.png);
    background-repeat: repeat-x;
    background-position: top right;
-   padding-top: 0px;
-   padding-left: 0px;
+   padding: 0px;
 }
 
 #header_left {
-  height: 95px;
-  width: 411px;
-  padding: 35px 0px 0px 50px;
+  height: 94px;
+  width: 350px;
+  padding: 35px 0px 0px 30px;
   margin: 0px;
   float: left;
-  background-image: url(/images/interoperate-logo-white-bg.png);
-  background-repeat: no-repeat;
-  background-position: top left;
-  border:0px;
+//  background-image: url(/images/interoperate-logo-white-bg.png);
+//  background-repeat: no-repeat;
+//  background-position: top left;
+  background-color: #fff;
+  opacity: 1.0;
+  border-bottom-right-radius: 130px;
+  border-bottom:1px solid #c00;
+  border-right: 1px solid #c00;
 }
 
 #header_right {
   float: right;
   background-color: #fff;
-  padding: 6px;
-  margin: 20px 20px 0px 0px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  border-left:1px solid #c00;
+  padding: 10px;
+  height: 110px;
+  margin: 0px 0px 0px 0px;
+}
+
+#header_right p {
+  font-weight: normal;
+  line-spacing: normal;
+  font-size: 0.6em;
+  font-family:'Open Sans','Helvetica','Arial',Sans-Serif;
+  color: #444;
 }
 
 #logo {
