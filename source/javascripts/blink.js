@@ -52,4 +52,7 @@ function one(){
   setTimeout(two, 1000);
 }
 
-$(document).ready(one);
+$(document).ready(function() {
+  $("body").css("background-color","#002b36");
+  one();
+});
