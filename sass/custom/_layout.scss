@@ -24,28 +24,29 @@ header[role="banner"] {
    background-image: url(/images/backgrounds/i8-bg.png);
    background-repeat: repeat-x;
    background-position: top right;
+   background-color: #002b36;
    padding: 0px;
 }
 
 #header_left {
-  height: 94px;
+  height: 95px;
   padding: 35px 25px 0px 25px;
   margin: 0px;
   float: left;
   background-color: #fff;
-  border-right: 1px solid #c00;
-  border-bottom: 1px solid #c00;
+//  border-right: 1px solid #c00;
+//  border-bottom: 1px solid #c00;
   border-bottom-right-radius: 65px;
 }
 
 #header_right {
-  height: 109px;
+  height: 110px;
   padding: 10px 25px 10px 25px;
   float: right;
   text-align:center;
   background-color: #fff;
-  border-left: 1px solid #c00;
-  border-bottom: 1px solid #c00;
+//  border-left: 1px solid #c00;
+//  border-bottom: 1px solid #c00;
   border-bottom-left-radius: 65px;
   margin: 0px 0px 0px 0px;
 }
