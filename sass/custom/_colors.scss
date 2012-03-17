@@ -2,34 +2,51 @@
 // To give it a try, uncomment some of the lines below rebuild your blog, and see how it works.
 // If you need a handy color picker try http://hslpicker.com
 
-$page-bg: #000 !default;
-$link-color: #c00;
-$link-color-hover: #444;
-$link-color-visited: #c00;
-$link-color-active: #c00;
+$page-bg: #eee !default;
+$main-bg: #fff !default;
+//$sidebar-bg: #073642 !default;
+$text-color: #586e75 !default;
+$text-color-light: #839496 !default;
+$type-border: #586e75 !default;
+$footer-color: #657b83 !default;
+//$footer-bg: #eee8d5 !default;
+
+$link-color: #268bd2;
+$link-color-hover: #cb4b16;
+$link-color-visited: #dc322f;
+$link-color-active: #268bd2;
 
 //$header-bg: #263347;
-$header-bg: #fff;
+$header-bg: #002b36;
 //$subtitle-color: lighten($header-bg, 58);
 //$subtitle-color: #ffffff;
 //$nav-bg: desaturate(lighten(#8fc17a, 18), 5);
-$nav-bg: #dc322f;
+$nav-bg: #002b36;
+$nav-border-top: #fff;
 //$nav-bg-front: image-url('noise.png');
 //$nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11));
 $nav-bg-back: $nav-bg;
 //$nav-color: darken($nav-bg, 38) !default;
-$nav-color: #fff !default;
+$nav-color: #859900 !default;
 //$nav-color-hover: darken($nav-color, 25) !default;
-$nav-color-hover: #000 !default;
+$nav-color-hover: #b58900 !default;
+$nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11)) !default;
 $nav-placeholder: desaturate(darken($nav-bg, 10), 15) !default;
-$nav-border-top: #dc322f;
 $nav-border-bottom: $nav-bg;
 $nav-border-left: darken($nav-bg, 11) !default;
 $nav-border-right: lighten($nav-bg, 7) !default;
 $nav-border: $nav-bg;
-//$sidebar-bg: desaturate(#eceff5, 8);
-//$sidebar-link-color: saturate(#526f9a, 10);
-//$sidebar-link-color-hover: darken(#7ab662, 9);
+
+$sidebar-link-color: $link-color !default;
+$sidebar-link-color-hover: $link-color-hover !default;
+$sidebar-link-color-active: $link-color-active !default;
+$sidebar-color: #657b83 !default;
+//$sidebar-border: desaturate(darken($sidebar-bg, 7), 10) !default;
+//$sidebar-border-hover: darken($sidebar-bg, 7) !default;
+$sidebar-link-color-subdued: lighten($sidebar-color, 20) !default;
+$sidebar-link-color-subdued-hover: $sidebar-link-color-hover !default;
+$twitter-status-link: lighten($sidebar-link-color-subdued, 15) !default;
+
 //$footer-bg: #ccc !default;
 //$footer-bg-front: image-url('noise.png');
 //$footer-bg-back: linear-gradient(lighten($footer-bg, 8), $footer-bg, darken($footer-bg, 11));

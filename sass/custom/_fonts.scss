@@ -3,9 +3,17 @@
 // If you love to use Web Fonts, you also need to add some lines to source/_includes/custom/head.html
 
 //$sans: "Optima", sans-serif;
-$sans: "Rosario", sans-serif;
+//$sans: "Rosario", sans-serif;
 //$serif: "Baskerville", serif;
 //$mono: "Courier", monospace;
 //$heading-font-family: "Open Sans", sans-serif;
 $header-title-font-family: "Open Sans", sans-serif;
 $header-subtitle-font-family: "Covered By Your Grace", sans-serif;
+
+$blockquote: $type-border !default;
+$sans: "Open Sans", "Helvetica Neue", Arial, sans-serif !default;
+$serif: "Open Sans", Georgia, Times, "Times New Roman", serif !default;
+$mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
+$heading-font-family: "Open Sans", "Georgia", "Helvetica Neue", Arial, sans-serif !default;
+$header-title-font-family: $heading-font-family !default;
+$header-subtitle-font-family: $heading-font-family !default;
