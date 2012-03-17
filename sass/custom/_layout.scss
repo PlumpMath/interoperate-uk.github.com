@@ -29,26 +29,24 @@ header[role="banner"] {
 
 #header_left {
   height: 94px;
-  width: 350px;
-  padding: 35px 0px 0px 30px;
+  padding: 35px 25px 0px 25px;
   margin: 0px;
   float: left;
-//  background-image: url(/images/interoperate-logo-white-bg.png);
-//  background-repeat: no-repeat;
-//  background-position: top left;
   background-color: #fff;
-  opacity: 1.0;
-  border-bottom-right-radius: 130px;
-  border-bottom:1px solid #c00;
   border-right: 1px solid #c00;
+  border-bottom: 1px solid #c00;
+  border-bottom-right-radius: 65px;
 }
 
 #header_right {
+  height: 109px;
+  padding: 10px 25px 10px 25px;
   float: right;
+  text-align:center;
   background-color: #fff;
-  border-left:1px solid #c00;
-  padding: 10px;
-  height: 110px;
+  border-left: 1px solid #c00;
+  border-bottom: 1px solid #c00;
+  border-bottom-left-radius: 65px;
   margin: 0px 0px 0px 0px;
 }
 
