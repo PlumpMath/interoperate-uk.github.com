@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sinatra | Interoperate]]></title>
   <link href="http://www.interoperate.co.uk/blog/categories/sinatra/atom.xml" rel="self"/>
   <link href="http://www.interoperate.co.uk/"/>
-  <updated>2012-09-10T15:57:13+01:00</updated>
+  <updated>2012-09-10T16:08:20+01:00</updated>
   <id>http://www.interoperate.co.uk/</id>
   <author>
     <name><![CDATA[Jon Wade]]></name>
@@ -33,7 +33,7 @@ gem install haml
 </code></pre>
 
 <p>I've included a few optional extras here. By default, <a href="http://www.sinatrarb.com/">Sinatra</a> will use WEBrick for the application server but <a href="http://code.macournoyer.com/thin/">Thin</a> will be used if it is installed.  Also, I much prefer using <a href="http://haml-lang.com/">HAML</a> (Yippeee!) markup over <a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/erb/rdoc/ERB.html">ERB</a> (Ugh, yuk *!&amp;%<sup>+!)</sup> for my view templates.  For my first trivial application I'm going to show a welcome message and tell the client their IP address (obtained from the 'request' parameter).
-``` ruby myapp.rb
+``` ruby my_app.rb
 require 'sinatra'
 require 'haml'</p>
 
