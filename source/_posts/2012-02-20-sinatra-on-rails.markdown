@@ -19,7 +19,7 @@ First install the Sinatra gem.
     gem install haml 
 
 I've included a few optional extras here. By default, [Sinatra](http://www.sinatrarb.com/) will use WEBrick for the application server but [Thin](http://code.macournoyer.com/thin/) will be used if it is installed.  Also, I much prefer using [HAML](http://haml-lang.com/) (Yippeee!) markup over [ERB](http://ruby-doc.org/stdlib-1.9.3/libdoc/erb/rdoc/ERB.html) (Ugh, yuk *!&%^+!) for my view templates.  For my first trivial application I'm going to show a welcome message and tell the client their IP address (obtained from the 'request' parameter).
-``` ruby myapp.rb
+``` ruby my_app.rb
 require 'sinatra'
 require 'haml'
 
